@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <!--DRY Don't repeat yourself--> 
+    <style>
+h1{
+    color: red;
+} 
+ #bg-yellow{
+    background-color: yellowgreen;
+ }  
+ .good {
+   color:olive
+ }
+  .bad{
+    color: blueviolet;
+  } 
+  *{
+    background-color: black;
+  }
+    </style> 
+    <!--4 types of selector
+    1. tag selector
+  2. ID selector
+  3. Class selector 
+  4. Universal Selector-->
+<body>
+    <!--Tag selector-->
+<h1>I am heading 1</h1>
+<h1>I am heading 2</h1>
+<div><h1>I am inside div</h1></div> 
+<!--ID selector # tag is used for id.Id's are unique--> 
+<h1>I am bhavya khatri</h1>
+<h2 id="bg-yellow">I am java</h2>
+<h3>i am h3</h3> 
+<!--class selector same name to multiple tags class are reusable. . sign use to denote class--> 
+<!--All the good players-->
+ <h1 class="good">Dhoni</h1>
+ <h1 class="good">hardik</h1>
+ <h1 class="good bad">sachin</h1>
+ <h1>bumrah</h1>
+ <h1>raina</h1> 
+ <!--Universal selector denote by * --> 
+ <p>p1</p>
+ <p>p2</p>
+ <p>p3</p> 
+ <span>I am span</span>
+</body>
+</html>
