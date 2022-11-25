@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #team-members {
+        display: flex;
+        width: 80%;
+        margin: auto;
+      }
+      /* Descendent , Child  */
+      #team-members > div {
+        width: 22%;
+        margin: auto;
+      }
+      #team-members > div > img {
+        width: 100%;
+      }
+      #team-members > div > h3,
+      #team-members > div > p {
+        text-align: center;
+      }
+
+      #team-stats {
+        display: flex;
+        width: 100%;
+        background-color: #ffca28;
+      }
+      #team-stats > div {
+        width: 18%;
+        margin: auto;
+        padding: 50px 25px 50px 25px;
+      }
+
+      #team-stats h2,
+      #team-stats p {
+        text-align: center;
+      }
+      #cards {
+        display: flex;
+        width: 80%;
+        margin: auto;
+      }
+      #cards > div {
+        width: 30%;
+        margin: auto;
+      }
+      #cards h2,
+      #cards p {
+        text-align: center;
+      }
+
+      #cards img {
+        width: 70px;
+        margin: auto;
+        display: block;
+      } 
+     p,h1{
+      text-align: center;
+     } 
+     .heading h1{
+      color: cadetblue;
+     }
+    </style>
+  </head>
+
+  <body>
+    <div class="heading">
+      <h1 class="h1">Meet Our Expert Members</h1>
+      <p>Who are in extremely love with eco friendly system.</p>
+    </div>
+    <!-- Top-section -->
+    <div id="team-members">
+      <!-- This section should contain 4 children divs, each div should have img,h2,p -->
+      <div>
+        <img  src="http://sclcxstc.com/img/t3.jpg"  alt="error" />
+        <h3>Ethel Davis</h3>
+        <p>Managing Director(Sales)</p>
+      </div>
+      <div>
+        <img
+          src="http://sclcxstc.com/img/t1.jpg"
+          alt=""
+        />
+        <h3>Ethel Davis</h3>
+        <p>Managing Director(Sales)</p>
+      </div>
+      <div>
+        <img
+          src="http://sclcxstc.com/img/t3.jpg"
+          alt="error"
+        />
+        <h3>Ethel Davis</h3>
+        <p>Managing Director(Sales)</p>
+      </div>
+      <div>
+        <img
+          src="http://sclcxstc.com/img/t1.jpg"
+          alt="error"
+        />
+        <h3>Ethel Davis</h3>
+        <p>Managing Director(Sales)</p>
+      </div>
+    </div>
+
+    <!-- Medium-section -->
+    <div id="team-stats">
+      <!-- This section should contain 5 children divs, each div should have h1,p -->
+      <div>
+        <h2>101</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div>
+        <h2>101</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div>
+        <h2>101</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div>
+        <h2>101</h2>
+        <p>Projects Completed</p>
+      </div>
+      <div>
+        <h2>101</h2>
+        <p>Projects Completed</p>
+      </div>
+    </div>
+
+    <div class="heading">
+      <h1>Some Features that Made us Unique</h1>
+      <p>Who are in extremely love with eco friendly system.</p>
+    </div>
+
+    <!-- bottom-section -->
+    <div id="cards">
+      <!-- This section should contain 3 children divs, each div should have img,h2,p -->
+      <div>
+        <img
+          src="https://preview.colorlib.com/theme/builder/img/icon/service-icon-1.png.webp"
+          alt=""
+        />
+        <h2>Building Drawings</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima sunt
+          consectetur ratione, aperiam temporibus corrupti.
+        </p>
+      </div>
+      <div>
+        <img
+          src="https://preview.colorlib.com/theme/builder/img/icon/service-icon-1.png.webp"
+          alt=""
+        />
+        <h2>Building Drawings</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima sunt
+          consectetur ratione, aperiam temporibus corrupti.
+        </p>
+      </div>
+      <div>
+        <img
+          src="https://preview.colorlib.com/theme/builder/img/icon/service-icon-1.png.webp"
+          alt=""
+        />
+        <h2>Building Drawings</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima sunt
+          consectetur ratione, aperiam temporibus corrupti.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<style>
+h1{
+    color: cadetblue;  
+    text-align: center;
+} 
+input[type=button]{
+    font-family: 'Orbitron',sans-serif; 
+    background-color: white;
+    color:black;
+    border: solid whitesmoke 0.5px;
+    width: 50px;
+    border-radius: 5px;
+    height: 50px; 
+    outline: none;
+    margin: auto; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+} 
+.display{
+    font-family: 'orbitron',sans-serif;
+    background-color: white;
+    border: solid whitesmoke 0.5px ; 
+    color: black;  
+    width: 100%; 
+    height: 50px; 
+    border-radius: 5px; 
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   
+} 
+.calc{
+    padding: 10px;
+    height: 380px;
+    width: 400px;
+    margin: auto; 
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+} 
+.color{
+    background-color: black;
+}
+</style>
+<body> 
+    <h1>Masai Calculator</h1>
+<table class="calc">
+    <tr>
+  <td colspan="4"><input class="display" type="text" id="res" disabled/></td> </tr>
+ <tr>
+    <td><input type="button" value="1" onclick="display('1')" /></td>
+    <td><input type="button" value="2" onclick="display('2')" /></td>
+    <td><input type="button" value="3" onclick="display('3')" /></td>
+    <td><input class="color" type="button" value="+" onclick="display('+')" /></td>
+ </tr> 
+ <tr>
+    <td><input type="button" value="4" onclick="display('4')" /></td>
+    <td><input type="button" value="5" onclick="display('5')" /></td>
+    <td><input type="button" value="6" onclick="display('6')" /></td>
+    <td><input type="button" value="-" onclick="display('-')" /></td>
+ </tr> 
+ <tr>
+    <td><input type="button" value="7" onclick="display('7')" /></td>
+    <td><input type="button" value="8" onclick="display('8')" /></td>
+    <td><input type="button" value="9" onclick="display('9')" /></td>
+    <td><input type="button" value="X" onclick="display('X')" /></td>
+ </tr> 
+ <tr>
+    <td><input type="button" value="C" onclick="display('C')" /></td>
+    <td><input type="button" value="0" onclick="display('0')" /></td>
+    <td><input type="button" value="=" onclick="display('=')" /></td>
+    <td><input type="button" value="/" onclick="display('/')" /></td>
+ </tr>
+
+</table>
+</body>
+</html>

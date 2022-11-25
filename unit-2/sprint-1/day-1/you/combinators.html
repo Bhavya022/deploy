@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<style>
+    <!--Descendant selector combinator-->
+  .container h1,.container h2{
+    color:red;
+  }  
+  <!--child selector combinator-->
+  .container > h1{
+    background-color: yellow;
+  } 
+  <!--General sibling selector after one will be selected-->
+  .h-1 ~ h1{
+    color: red;
+  } 
+  .heading+h1{
+    background-color: purple;
+  }
+</style>
+<body>
+    <!--Descendant selector-->
+
+  <div class="container"> 
+    <h1 class="heading">I am heading 1</h1>
+    <h1>I am main heading</h1>
+    <div>
+    <h1 class="h-1">I am heading 2</h1></div>
+    <h1>I am heading3</h1> 
+    <h2>I am heading 4</h2>
+    <div>
+        <h2>I am heading 5</h2>
+    </div>
+  </div> 
+  <h1>I am outside heading</h1> 
+</body>
+</html>
