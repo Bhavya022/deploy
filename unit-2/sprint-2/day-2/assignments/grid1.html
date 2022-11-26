@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+          display: grid;
+          gap:20px 20px;
+          grid-template-columns: auto auto auto; 
+          grid-template-rows: auto auto auto;
+          background-color:white;
+          padding: 10px; 
+          border-radius: 0.5px;
+        }
+        
+        .grid-item {
+          background-color:gray;
+          border: 1px solid rgba(0, 0, 0, 0.8);
+          padding: 20px;
+          font-size: 30px;
+          text-align: center; 
+          color: white; 
+          border-radius: 0.5px;
+        }  
+        #e{ 
+        grid-column-start: 1;
+        grid-column-end: 5;
+        } 
+        #c{
+            grid-column-start: 1;
+            grid-column-end: 2;
+        } 
+        #d{
+            grid-column-start: 2;
+            grid-column-end: 5;
+        } 
+        #a{
+            grid-column-start: 1;
+            grid-column-end: 3;
+        } 
+        #b{
+            grid-column-start: 3;
+            grid-column-end: 5;
+        }
+
+        </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item" id="a">A</div>
+        <div class="grid-item" id="b">B</div>
+        <div class="grid-item" id="c">C</div>  
+        <div class="grid-item" id="d">D</div>
+        <div class="grid-item" id="e">E</div>
+ 
+      </div>
+</body>
+</html>
