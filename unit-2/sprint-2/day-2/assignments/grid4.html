@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head> 
+<style> 
+h1{
+    text-align: center;
+    color: cadetblue;
+}
+
+.head {
+          display: grid;
+          gap:10px 10px;
+          grid-template-columns: auto auto auto auto ; 
+          grid-template-rows: auto auto auto auto auto;
+          background-color:white;
+          padding: 30px 30px 30px 30px; 
+          width: 40%;
+          margin: auto;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          
+          
+} 
+.grid {
+          background-color:white;
+        
+          padding: 20px;
+          font-size: 18px;
+          text-align: center; 
+          color: black; 
+          border-radius: 10px; 
+           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        
+        }  
+#input{
+
+    grid-column-start: 1;
+    grid-column-end: 5;
+} 
+#d{
+    background-color: black; 
+    color: white;
+} 
+#ab{
+    background-color: red;
+}
+
+</style>
+<body>
+    <h1>Masai Calculator</h1>
+  <div class="head"> 
+  <div class="grid" id="input"></div> 
+ <div class="grid" id="a">1</div>
+ <div class="grid" id="b">2</div>
+ <div class="grid" id="c">3</div>
+ <div class="grid" id="d">+</div> 
+ <div class="grid" id="a">4</div>
+ <div class="grid" id="b">5</div>
+ <div class="grid" id="c">6</div>
+ <div class="grid" id="d">-</div> 
+ <div class="grid" id="a">7</div>
+ <div class="grid" id="b">8</div>
+ <div class="grid" id="c">9</div>
+ <div class="grid" id="d">x</div>
+ <div class="grid" id="ab">C</div>
+ <div class="grid" id="b">0</div>
+ <div class="grid" id="d">=</div>
+ <div class="grid" id="d">/</div>
+  </div>  
+</body>
+</html>

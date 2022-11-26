@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head> 
+<style> 
+h1{
+    text-align: center;
+    color: cadetblue;
+}
+
+.head {
+          background-color:white;
+          padding: 20px;
+          font-size: 18px;
+          text-align: center; 
+          color: black; 
+           margin: auto;
+           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+           width:40%;
+        
+        } 
+        #input{
+            width: 80%; 
+            border-radius: 10px;
+            background-color: white; 
+            padding: 20px; 
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        } 
+      .parent1 div{  /*  Descendant selector      */
+     width:15%;
+     height: 40px;
+      border-radius: 10px;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+     margin:10px;
+     margin-top: 10px; 
+     text-align: center;
+      }  
+      .parent1 :last-child{   /*  last-child     */
+        background-color: black;
+        color: white;
+      } 
+      .parent2>div{ /*  child selector      */
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        width:15%;
+     height: 40px;
+      border-radius: 10px;
+     margin: 10px;
+     margin-top: 10px; 
+     text-align: center;
+      } 
+      .parent2 :nth-child(4){  /*  nth-child     */
+        background-color: black;
+        color: white;
+      } 
+      
+      .parent1,.parent2,.parent4{
+        display: flex; 
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;     
+      }
+        .parent4 div{ 
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        width:15%;
+     height: 40px;
+      border-radius: 10px;
+     margin: 10px;
+     margin-top: 10px; 
+     text-align: center; 
+     background-color: black;
+     color: white;
+        } 
+        .parent4 :nth-child(1){  /*  nth-child     */
+        background-color: red;
+        color: black;
+      }  
+      .parent4 :nth-child(2){  /*  nth-child     */
+        background-color:white;
+        color: black;
+      } 
+
+</style>
+<body>
+    <h1>Masai Calculator</h1>
+  <div class="head"> 
+  <div  id="input"></div> 
+  <div class="parent1">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>+</div>
+ </div>
+ <div class="parent2">
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>-</div>
+   </div> 
+   <div class="parent1">
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>x</div>
+   </div> 
+   <div  class="parent4">
+    <div>C</div>
+    <div>0</div>
+    <div>=</div>
+    <div>/</div>
+   </div>
+  </div>  
+</body>
+</html>    
+       
