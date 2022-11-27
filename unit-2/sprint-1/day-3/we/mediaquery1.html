@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query</title>
+    <style>
+       .container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 80px;
+        gap: 10px;
+        grid-template-areas:
+          "nav nav nav nav"
+          "red green blue gray"
+          "red green blue gray";
+      }
+      .container > div {
+        font-size: 50px;
+        color: white;
+      }
+      .container > div:nth-child(1) {
+        background-color: yellow;
+        grid-area: nav;
+      }
+      .container > div:nth-child(2) {
+        background-color: red;
+        grid-area: red;
+      }
+      .container > div:nth-child(3) {
+        background-color: greenyellow;
+        grid-area: green;
+      }
+      .container > div:nth-child(4) {
+        background-color: blue;
+        grid-area: blue;
+      }
+      .container > div:nth-child(5) {
+        background-color: gray;
+        grid-area: gray;
+      }
+
+      @media screen and (min-width: 601px) and (max-width: 800px) {
+        .container {
+          grid-template-areas:
+            "nav nav nav nav"
+            "red red blue blue"
+            "green green gray gray";
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>Navigation</div>
+        <div>Box 1</div>
+        <div>Box 2</div>
+        <div>Box 3</div>
+        <div>Box 4</div>
+
+    </div>
+</body>
+</html>
