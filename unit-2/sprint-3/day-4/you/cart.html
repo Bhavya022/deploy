@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav">
+     <a href="home.html">Home</a>  
+     <a href="cart.html">cart</a> 
+    </div> 
+    <div id="cont"></div>
+</body> 
+<script> 
+ let courses =[{name:nike,price:12000},{name:liberty,price:18000}] 
+ let cont = document.getElementById("cont");
+ courses.forEach(function(element,index){
+    let course = document.createElement("div");
+    let name = document.createElement("h1"); 
+    name.innerText = element.name;
+    let price = document.createElement("h3"); 
+    price.innerText = element.price; 
+    let cart = document.createElement("button");
+    cart.innerText="cart";
+    cart.addEventListener("click",()=>{  
+        let lsdata = JSON.parse(localStorage.getItem("course"));
+        if(lsdata == null){
+            lsdata = [];
+        } 
+        lsdata.push(element);
+        localStorage.setItem("course",JSON.stringify(element))
+        console.log(element); 
+    })
+  course.append(name,price);
+    cont.append(course)
+
+ }) 
+ // pass data from 1 page to another page send 1 single object
+ // let courseData = JSON.parse(localStorage.getItem("course"));
+ //console.log(courseData) 
+ //Monday eval 
+ //1. Getting data from a form 
+ 2. store this data in LS(Array of obj) 
+ 3. Get the ls data in next page.
+ 4.loop over the lsdata  and show it in the DOM as table rows . 
+    </script>
+</html>
