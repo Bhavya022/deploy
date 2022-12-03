@@ -29,28 +29,19 @@
   </body>
   <script>
     //you need to code here 
-    let LSData = JSON.parse(localStorage.getItem("bookmark"));
-    let tbody = document.querySelector("tbody");
-    if (LSData == null) LSData = [];
-
-    LSData.forEach((element, index) => {
+    let lsdata = JSON.parse(localStorage.getItem("bookmarks"));
+    let tbody = document.getElementById("body");
+    lsdata.forEach(element => {
       let tr = document.createElement("tr");
-
       let td1 = document.createElement("td");
-      td1.innerText = element.name;
-
+      td1.innerText=element.name; 
       let td2 = document.createElement("td");
-      td2.innerText = element.email;
-
+      td2.innerText=element.email; 
       let td3 = document.createElement("td");
-      td3.innerText = element.role;
-
-      
-
-
-
-      tr.append(td1, td2, td3);
+      td3.innerText=element.role; 
+      tr.append(td1,td2,td3);
       tbody.append(tr);
+
     });
   </script>
 </html>
