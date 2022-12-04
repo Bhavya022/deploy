@@ -22,22 +22,22 @@
       let height = document.getElementById("height");
     let weight = document.getElementById("weight");
    let bmivalue = Number(weight.value)/Number(height.value**2) ;  
-   bmi.innerText=bmivalue;
+  // bmi.innerText=bmivalue;
   // bmi.textContent=bmi.value.toFixed(1); 
     if(bmivalue<18.5){ 
-      bmivalue.textContent = bmivalue.toFixed(1);
+      bmi.textContent = bmivalue.toFixed(1);
       status.textContent = "UnderWeight";
     }
     else if(bmivalue>=18.5 && bmivalue <=24.9){ 
-      bmivalue.textContent = bmivalue.toFixed(1);
+      bmi.textContent = bmivalue.toFixed(1);
       status.textContent = "Normal Weight";
     }
     else if(bmivalue>=25 && bmivalue<=29.9){ 
-      bmivalue.textContent = bmivalue.toFixed(1);
+      bmi.textContent = bmivalue.toFixed(1);
       status.textContent = "Overweight";
     } 
     else if(bmivalue>=30){ 
-      bmivalue.textContent = bmivalue.toFixed(1);
+      bmi.textContent = bmivalue.toFixed(1);
       status.textContent = "Obese";
     }
   });
