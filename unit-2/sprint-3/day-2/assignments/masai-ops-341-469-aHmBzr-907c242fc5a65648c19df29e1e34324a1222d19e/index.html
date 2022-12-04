@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HOSPITAL- Doctor Records</title> 
-    <link rel="stylesheet" href="index.css" />
+    <title>Masai Employee Records</title>
   </head> 
+  <style>
+    div {
+  display: flex;
+  justify-content: space-around;
+}
+form {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
 
-  <body> 
-    <h1>HOSPITAL - DOCTOR RECORDS</h1>
-    <!-- Use this form for data input  --> 
+
+
+label {
+  font-size: 20px;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #8caacf;
+}
+
+  </style>
+  <body>
+    <!-- Use this form for taking the inputs  -->
     <form id="form">
       <input placeholder="Name" type="text" id="name" />
-      <input placeholder="Doctor ID" type="text" id="doctor_id" />
-      <select id="specialization">
-        <option value="">Select Specialization</option>
-        <option value="Dermatologist">Dermatologist</option>
-        <option value="Dentist">Dentist</option>
-        <option value="Gynecologist">Gynecologist</option>
+      <input placeholder="Employee ID" type="text" id="employee_id" />
+      <select id="department">
+        <option value="">Select Department</option>
+        <option value="HR">HR</option>
+        <option value="Finance">Finance</option>
+        <option value="Engineering">Engineering</option>
       </select>
       <input placeholder="Experience" type="number" id="experience" />
       <input placeholder="Email" type="email" id="email" />
@@ -23,19 +60,19 @@
       <input type="submit" value="Submit" />
     </form>
 
-    <!-- Use this Select tag for filter part  -->
+    <!-- Use this select tag for filtering  -->
     <select id="filter">
-      <option value="">Select Specialization</option>
-      <option value="Dermatologist">Dermatologist</option>
-      <option value="Dentist">Dentist</option>
-      <option value="Gynecologist">Gynecologist</option>
+      <option value="">Select Department</option>
+      <option value="HR">HR</option>
+      <option value="Finance">Finance</option>
+      <option value="Engineering">Engineering</option>
     </select>
     <table id="table">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Doctor ID</th>
-          <th>Specialization</th>
+          <th>Employee ID</th>
+          <th>Department</th>
           <th>Experience in Years</th>
           <th>Email</th>
           <th>Mobile No</th>
@@ -43,17 +80,16 @@
           <th>Delete</th>
         </tr>
       </thead>
-      <tbody id="tbody">
+      <tbody>
         <!-- Append Rows here using JS & DOM  --> 
+       
+
       </tbody>
     </table>
   </body>
-  
-
-<script>
-
-let myform = document.getElementById("form");
-let body = document.querySelector("tbody"); 
+  <script>
+  let myform = document.getElementById("form");
+let tbody = document.querySelector("tbody"); 
 let filter = document.getElementById("filter");
 let data = [];
 myform.addEventListener("submit",(event)=>{
@@ -61,8 +97,8 @@ event.preventDefault();
 
 let formDara ={
     name: form.name.value,
-    doctor_id:form.doctor_id.value,
-    specialization:form.specialization.value,
+    employee_id:form.employee_id.value,
+    department:form.department.value,
     experience:form.experience.value,
     email:form.email.value,
     mobile:form.mobile.value, 
@@ -83,8 +119,8 @@ data.forEach((element,index)=>{
     let td7 = document.createElement("td");
     let td8 = document.createElement("td");
     td1.innerText = element.name;
-    td2.innerText = element.doctor_id; 
-    td3.innerText = element.specialization;
+    td2.innerText = element.employee_id; 
+    td3.innerText = element.department;
     td4.innerText = element.experience;
     td5.innerText = element.email;
     td6.innerText = element.mobile;
@@ -111,29 +147,29 @@ data.forEach((element,index)=>{
     }
     tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
     tbody.append(tr); 
-    let filterselect = document.getElementById("filter");
- arr.forEach(function(element,index){
-    let Heading = document.createElement("h1");
-    Heading.innerText = element ;
-    cont.append(Heading);
- }) 
+//     let filterselect = document.getElementById("filter");
+//  arr.forEach(function(element,index){
+//     let Heading = document.createElement("h1");
+//     Heading.innerText = element ;
+//     cont.append(Heading);
+//  }) 
 
- filter.addEventListener("change",()=>{
-    console.log(filter.value) ; 
-    cont.innerText
-    let filtered =arr.filter(function(element,index){
+//  filter.addEventListener("change",()=>{
+//     console.log(filter.value) ; 
+//     cont.innerText
+//     let filtered =arr.filter(function(element,index){
 
-        if(element == filter.value){
-            return true;
-        } 
-        else{
-            return false; 
-        }
-    }) 
-    console.log(filtered);
- })
+//         if(element == filter.value){
+//             return true;
+//         } 
+//         else{
+//             return false; 
+//         }
+//     }) 
+//     console.log(filtered);
+//  })
 });
 });
 
-</script> 
+  </script>
 </html>
