@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+  </head>
+  <body>
+    <h1 id="heading">0</h1>
+    <button>Increment</button>
+  </body>
+  <script>
+    let heading = document.getElementById("heading");
+    let button = document.querySelector("button");
+    let counter = localStorage.getItem("abcd");
+
+    if (counter === null) {
+      counter = 0;
+    }
+
+    heading.innerText = counter;
+
+    button.addEventListener("click", function () {
+      counter++;
+      localStorage.setItem("abcd", counter);
+      heading.innerText = counter;
+    });
+    // 1. getItem
+    // 2. setItem
+  </script>
+</html>
+
+<!-- I have a h1 tag ,
+By default it should show 0;
+we will also have a button 
+clicking on that should increment the number shown in the h1 tag -->

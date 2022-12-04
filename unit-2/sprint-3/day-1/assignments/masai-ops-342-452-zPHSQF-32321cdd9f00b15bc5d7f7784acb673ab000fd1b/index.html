@@ -33,12 +33,34 @@
      Email <br><br><input type="email" id="email"><br><br>
       Password<br><br><input type="password"  id="password"><br><br>
       <p>By signing up,I accept the Masai School<a>Terms of Service</a> and acknowledge the<a>Privacy Policy</a></a></p>
-      <input type="submit" value="Sign UP" />
+      <input type="submit" value="Sign UP" id="signup"/>
     </form>
   </div>
 </body>
 <script>
-  
+  let myForm = document.querySelector("form");
+
+myForm.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    let obj={
+      Name:myForm.name.value,
+      Email:myForm.email.value,
+      Password:myForm.password.value
+    }
+
+    let signup = JSON.parse(localStorage.getItem("account-data"));
+
+    if(signup == null){
+      signup=[];
+    }
+
+    signup.push(obj);
+
+    localStorage.setItem("account-data",JSON.stringify(signup));
+    
+})
 </script>
 
 </html>
