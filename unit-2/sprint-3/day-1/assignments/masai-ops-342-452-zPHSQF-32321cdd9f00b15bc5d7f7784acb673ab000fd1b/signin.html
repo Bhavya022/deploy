@@ -31,5 +31,20 @@
       </form>
     </div>
   </body>
-  <script></script>
+  <script>
+    let lsdata = JSON.parse(localStorage.getItem("account-data"));
+    let myForm = document.querySelector("form");
+
+myForm.addEventListener("submit",(e)=>{
+let password = document.getElementById("password");
+let heading = document.getElementById("heading");
+if(password.value == lsdata.password.value){
+  heading.innerText ="Sign in Successful."
+} 
+else{
+  heading.innerText ="Wrong Credentials."
+}
+
+});
+  </script>
 </html>

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Masai Games</title>
+    <title>Masai Games</title> 
+    <style>
+      div{
+        border: 1px solid black; 
+        width:30%; 
+        height: 20px;
+      }
+    </style>
   </head>
   <body>
     <div id="min"></div>
@@ -23,6 +30,20 @@
     <button id="enter">ENTER</button>
   </body>
   <script>
-
+   let min = document.getElementById("min");
+   let max = document.getElementById("max");
+   let score = document.getElementById("score");
+   
+   enter.addEventListener("click",function(){ 
+    let enter = document.getElementById("enter");
+   let keypad = document.getElementById("keypad");   
+    score.innerText = keypad.value; 
+    if(score.value<min.value){
+      min.innerText = score.value;
+    } 
+    if(score.value>max.value){
+      max.innerText = score.value;
+    }
+   })
   </script>
 </html>
