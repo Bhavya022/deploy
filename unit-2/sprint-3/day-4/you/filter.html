@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="filter">
+        <option value="Heading-1">Heading 1</option> 
+        <option value="Heading-2">Heading 2</option> 
+        <option value="Heading-3">Heading 3</option> 
+        <option value="Heading-4">Heading 4</option> 
+        
+    </select> 
+    <div id="cont"></div>
+</body> 
+<script> 
+let arr =["Heading-1","Heading-2","Heading-2","Heading-3","Heading-4"];
+let cont = document.getElementById("cont");
+let filterselect = document.getElementById("filter");
+ arr.forEach(function(element,index){
+    let Heading = document.createElement("h1");
+    Heading.innerText = element ;
+    cont.append(Heading);
+ }) 
+
+ filterselect.addEventListener("change",()=>{
+    console.log(filterselect.value) ; 
+    cont.innerText
+    let filtered =arr.filter(function(element,index){
+
+        if(element == filterselect.value){
+            return true;
+        } 
+        else{
+            return false; 
+        }
+    }) 
+    console.log(filtered);//it will show 2 heading-2 in arr.
+ })
+    </script>
+</html>
