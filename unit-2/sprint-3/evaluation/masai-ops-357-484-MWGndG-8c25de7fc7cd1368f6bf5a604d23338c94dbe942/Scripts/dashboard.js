@@ -39,9 +39,9 @@ function submitform(){
         let desc = document.createElement("td");
         let added = document.createElement("td");
         let category = document.createElement("td");
-        let price = document.createElement("td");
         let buy = document.createElement("td");
-        let bookmark = document.createElement("td"); 
+        let bookmark = document.createElement("td");  
+        let price = document.createElement("td");
 
         name.textContent=element.name;
         author.textContent = element.author;
@@ -65,8 +65,8 @@ function submitform(){
             localStorage.setItem("book-list",JSON.stringify(user)); 
             submitform()
         })
-     tr.append(name,author,desc,added,category,price,buy,bookmark) 
+     tr.append(name,author,desc,added,category,buy,bookmark,price) 
      tbody.append(tr)
     });
 }    
-submitform();
+submitform();  
