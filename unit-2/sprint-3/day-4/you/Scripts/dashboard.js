@@ -1,5 +1,4 @@
-// Write code related to dashboard page here 
-
+// Write code related to dashboard page here
 let userData=JSON.parse(localStorage.getItem("task-list"))||[]
 let priority_list=JSON.parse(localStorage.getItem("priority-list"))||[]
 let tbody=document.getElementById("dashboard_user_table")

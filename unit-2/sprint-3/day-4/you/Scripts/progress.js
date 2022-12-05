@@ -1,10 +1,9 @@
-// Write code for the Progress page here   
-
+// Write code related to dashboard page here
 let done_list=JSON.parse(localStorage.getItem("done-list"))||[]
 let priority_list=JSON.parse(localStorage.getItem("priority-list"))||[]
-let tbody=document.getElementById("progress")
+let tbody=document.getElementById("progress_user_table")
  function showUser(){
- 
+tbody.innerHTML=""
 priority_list.forEach(function(user,index){
     let tr=document.createElement("tr")
     let name=document.createElement("td")
@@ -27,10 +26,10 @@ priority_list.forEach(function(user,index){
    showUser()
     })
     tr.append(name,description,startDate,endDate,priority,add)
-    tbody.append(tr);
+   tbody.append(tr)
 })
 
 
- } 
+ }
 
  showUser()

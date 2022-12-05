@@ -1,5 +1,4 @@
-// Write code related to Done page here 
-
+// Write code related to dashboard page here
 let done_list=JSON.parse(localStorage.getItem("done-list"))||[]
 let tbody=document.getElementById("done_user_table")
  function showUser(){
