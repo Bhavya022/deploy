@@ -15,12 +15,13 @@ function getData(data) {
     })
 } 
 let data =1;
-let abcd = getData(data); 
+let result = getData(data); 
     //console.log(abcd); 
-    abcd.then((res)=>{
-        console.log(abcd);
+   result
+    .then((res)=>{
+        console.log(res);
     }) 
-    .catch((error)=>{
-        console.log(abcd);
+    .catch((error)=>{ 
+        console.log(error);
     });
 export default getData ; 
