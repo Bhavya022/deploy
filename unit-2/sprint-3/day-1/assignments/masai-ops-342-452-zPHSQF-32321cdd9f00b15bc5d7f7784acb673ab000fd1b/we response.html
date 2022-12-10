@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+</body>  
+<script> 
+let container = document.getElementById("container");
+//Here data is something we will get from api  
+let response = fetch("https://fakestoreapi.com/products").then((responseObject)=>{
+  return responseObject.json();
+
+})  
+.then((actualData){  
+    displayProducts(actualData)
+   // console.log()
+})  
+.catch((error){
+    console.log(error);
+})
+function displayProducts(data){
+    data.forEach(element => {
+   let product = document.createElement("div"); 
+ let image = document.createElement("img");
+ image.setAttribute("src",element.image);  
+ let title = document.createElement("h1");
+ title.innerText = element.title; 
+ let price = document.createElement("p");
+ price.innerText = element.price;
+ let description = document.createElement("p");
+ description.innerText = element.description;
+
+ product.append(image);
+   container.append(product);      
+   
+   
+    });
+}
+    </script>
+</html>
