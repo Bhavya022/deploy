@@ -15,14 +15,5 @@ function getData(data) {
     });
     return promise;
 } 
-let data =1;
-let result = getData(data); 
-    //console.log(abcd); 
-   result
-    .then((res)=>{
-        console.log(res);
-    }) 
-    .catch((error)=>{ 
-        console.log(error);
-    });
+
 export default getData ; 
