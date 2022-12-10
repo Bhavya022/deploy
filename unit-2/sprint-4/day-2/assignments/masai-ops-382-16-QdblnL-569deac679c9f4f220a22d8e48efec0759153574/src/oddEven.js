@@ -5,17 +5,18 @@ function getData(data) {
        } else if(data%2==0){ 
         setTimeout(()=>{
        resolve("even");
-        },2000);
+        },4000);
        } 
        else{ 
         setTimeout(()=>{
       resolve("odd");
-        },4000)
+        },2000)
        }
     })
-}
+} 
+let data =1;
 let abcd = getData(data); 
-    console.log(abcd); 
+    //console.log(abcd); 
     abcd.then((res)=>{
         console.log(abcd);
     }) 
