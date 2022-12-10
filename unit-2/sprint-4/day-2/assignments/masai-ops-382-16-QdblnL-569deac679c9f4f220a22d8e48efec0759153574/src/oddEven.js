@@ -12,7 +12,8 @@ function getData(data) {
       resolve("odd");
         },2000)
        }
-    })
+    });
+    return promise;
 } 
 let data =1;
 let result = getData(data); 
