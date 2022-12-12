@@ -46,7 +46,8 @@
     const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/getrestaurants?limit=30`;
     // All your JS code for Home Page goes here 
     let container = document.getElementById("restaurant-container"); 
-    let filter = document.getElementById("filter");
+    let filter = document.getElementById("filter"); 
+    let alert = document.getElementById("alert")
     let fetchdata=[] 
 
     //filter part  
@@ -107,12 +108,12 @@
       }
      } 
      if(ispresent===true){
-      alert("Restaurant Already in Favourites")
+      alert.innerText="Restaurant Already in Favourites";
      } 
      else{ 
       restdata.push(element);
       localStorage.setItem("favourites",JSON.stringify(restdata))
-      alert("Restaurant Added To Favourites")
+      alert.innerText="Restaurant Added To Favourites"
      }
      })
      card.append(image,name,price,type,rating,Favourites) 
