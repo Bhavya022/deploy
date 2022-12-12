@@ -23,14 +23,14 @@
   <script>
     // Write all necessery JS here  
     let container = document.getElementById("cart-container");
-
+     let total = document.getElementById("cart-total");
 let cartData = JSON.parse(localStorage.getItem("cart"));
 if(cartData === null){
   cartData = [];
 }
 
 displayProducts(cartData);
-
+ let count=0;
 function displayProducts(data) {
   container.innerHTML = null;
   data.forEach((element) => {
