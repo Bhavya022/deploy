@@ -13,19 +13,19 @@ function greet() {
   let lastName = "Smith";
   let age = 54;
 
-  let greeting = `<replace it with your code>`;
+  let greeting = `${firstName}${lastName}'s age is ${age}.`;
   return greeting;
 }
 
 // interpolate(2,3) is expected to return `2 + 3 = 5`
 // interpolate(5,2) is expected to return `5 + 2 = 7`
 function interpolate(n1, n2) {
-  return `<replace it with your code>`;
-}
+  return `${n1}+${n2}=${n1+n2}`;
+} 
 
 // nuller is expected to return boolean value null 
 function nuller() {
-
+ return null;
 }
 
 // objectFactory('Raj', 26) is expected to return {Raj: 26}
@@ -33,7 +33,7 @@ function nuller() {
 function objectFactory(fname, age) {
   let obj = {};
   // your code starts
-
+obj[fname]=age;
   // your code ends
   return obj;
 }
