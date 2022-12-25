@@ -1,14 +1,14 @@
 function studentData(firstName,lastName,age,marksArray,...hobbies) { 
   let obj={};
-  obj.fName='${fName} S{lName}';
+  obj.firstName='${firstName} S{lastName}';
   obj.age = age;
   obj.hobbies=hobbies; 
   obj.getInfo = function(){
-    return '${fName} ${lastName}'s age is ${age}';
+    return '${firstName} ${lastName}';
   } 
   obj.getResult = function(){
     let marksTotal =0;
-    for(let mark of marksarr){
+    for(let mark of marksArray){
       marksTotal+=mark;
     } 
     let no = marksArray.length;
