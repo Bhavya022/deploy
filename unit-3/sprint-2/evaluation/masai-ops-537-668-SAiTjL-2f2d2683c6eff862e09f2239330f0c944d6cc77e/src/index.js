@@ -1,23 +1,29 @@
 // Problem 1. 
 
-function Character(name) {
- this.name = "unnamed"; 
+function Character() {
+ this.name = "unnamed" 
 }
 Character.prototype.setName = function(setName){
-    return this.setName; 
-}   
-function Warrior(Strength) {
-    this.strength=0;
-}
-Warrior.prototype.increaseStrength = function(){
-      return this.strength = `${this.strength+100}`
-}  
-Warrior.prototype.decreaseStrength = function(){
-    return this.strength = `${this.strength-100}`
-}
-function Knight() {
-
+    return this.name=setName;
 } 
+Object.setPrototypeOf(Warrior,Character) 
+Object.setPrototypeOf(Knight,Character)
+function Warrior() {
+    this.strength=0;
+}   
+Warrior.prototype.increaseStrength=function(increaseStrength){
+    return  this.strength=`${this.strength}+100`
+} 
+Warrior.prototype.decreaseStrength=function(decreaseStrength){
+    return this.strength=`${this.strength}-100`
+}
+function Knight(){ 
+    this.weapon = "no weapon"
+}   
+Knight.prototype.setWeapon = function(setWeapon){
+    return this.weapon = setWeapon ;
+}
+
 Object.setPrototypeOf(Warrior,Character);
 let c = new Character(); 
 console.log(c) 
@@ -31,7 +37,13 @@ w.increaseStrength();
 w.increaseStrength();
 console.log(w); // { name: 'Williams', strength: 200 }
 w.decreaseStrength()
-console.log(w); // { name: 'Williams', strength: 100 }
+console.log(w); // { name: 'Williams', strength: 100 } 
+let k = new Knight();
+console.log(k); // { name: 'unnamed', strength: 0, weapon: 'no weapon' }
+k.setName('William');
+k.increaseStrength();
+k.setWeapon('Sword');
+console.log(k); // { name: 'William', strength: 100, weapon: 'Sword' }
 // Problem 2.
 
 class Vehicle {
