@@ -6,25 +6,27 @@ function Character() {
 Character.prototype.setName = function(setName){
     return this.name=setName;
 } 
-Object.setPrototypeOf(Warrior,Character) 
-Object.setPrototypeOf(Knight,Character)
-function Warrior() {
+Object.setPrototypeOf(Warrior.prototype,Character.prototype) 
+Object.setPrototypeOf(Knight.prototype,Character.prototype)
+function Warrior() { 
+    Character.call(this)
     this.strength=0;
 }   
-Warrior.prototype.increaseStrength=function(increaseStrength){
-    return  this.strength=`${this.strength}+100`
+Warrior.prototype.increaseStrength=function(){
+    return  this.strength=this.strength+100
 } 
-Warrior.prototype.decreaseStrength=function(decreaseStrength){
-    return this.strength=`${this.strength}-100`
-}
-function Knight(){ 
+Warrior.prototype.decreaseStrength=function(){
+    return this.strength=this.strength-100
+} 
+function Knight(){  
+    Character.call(this);
+    Warrior.call(this);
     this.weapon = "no weapon"
 }   
 Knight.prototype.setWeapon = function(setWeapon){
     return this.weapon = setWeapon ;
 }
 
-Object.setPrototypeOf(Warrior,Character);
 let c = new Character(); 
 console.log(c) 
 c.setName('Williams');
