@@ -22,7 +22,9 @@ const obj={
 }   
 //console.log(obj) 
 //alert(obj)
-  window.localStorage.setItem("todos",JSON.stringify(obj))
+  localStorage.setItem("todos",JSON.stringify(obj)) 
+  localStorage.setItem("status",JSON.stringify("todo"))
+
 }
 
 
