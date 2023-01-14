@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch-2</title>
+    <style>
+        #container{
+            width: 90%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <select id="filter">
+        <option value="">Select a Region</option>
+        <option value="Africa">Africa</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Americas">Americas</option>
+    </select>
+    <div id="container"></div>
+</body>
+
+<script>
+    // https://restcountries.com/v3.1/all
+    // 1. fetch the data 
+    // 2. Loop Over the data and show it in dom
+    // From api -> Name(element.name.official) , Region(element.region), Population (element.population) Flag(element.flags.png)
+    let container = document.getElementById("container");
+    let filterSelect = document.getElementById("filter");
+    let fetchedData = [];
+
+    fetchData();
+
+    filterSelect.addEventListener("change",function() {
+        let filteredData = fetchedData.filter((element) =>{
+            if(element.region === filterSelect.value){
+                return true;
+            }else{
+                return false;
+            }
+        })
+
+        displayCountries(filteredData);
+    })
+
+    function fetchData() {
+        let promise = fetch("https://restcountries.com/v3.1/all")
+        promise.then((responseObject) =>{
+            return responseObject.json();
+        })
+        .then((acctualData) =>{
+            let myNeededData = acctualData.map((element) =>{
+                let obj = {
+                    name: element.name.official,
+                    region: element.region,
+                    population: element.population,
+                    flag: element.flags.png,
+                }
+                return obj;
+            })
+            fetchedData = myNeededData;
+            console.log("Fetched Data After fetch:- ");
+             console.log(fetchedData);
+            displayCountries(myNeededData);
+        })
+        .catch((error) =>{
+            console.log(error);
+        })
+        console.log("OK");
+    }
+
+    function displayCountries(data) {
+        container.innerHTML = null;
+        data.forEach((element) => {
+            let card = document.createElement("div");
+            card.setAttribute("class","card");
+            let flag = document.createElement("img");
+            flag.setAttribute("src",element.flag);
+
+            let name = document.createElement("h2");
+            name.innerText = element.name;
+
+            let region = document.createElement("h4");
+            region.innerText = element.region;
+            let population = document.createElement("p");
+            population.innerText = element.population;
+            card.append(flag,name,region,population);
+            container.append(card);
+        });
+    }
+
+     async function fetchData2() {
+        try {
+            let responseObject = await fetch("https://restcountries.com/v3.1/all");
+        let acctualData = await responseObject.json();
+        let myNeededData = acctualData.map((element) =>{
+                let obj = {
+                    name: element.name.official,
+                    region: element.region,
+                    population: element.population,
+                    flag: element.flags.png,
+                }
+                return obj;
+            })
+            fetchedData = myNeededData;
+            console.log("Fetched Data After fetch:- ");
+             console.log(fetchedData);
+            displayCountries(myNeededData);
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
+        
+
+     }
+
+     fetchData2();
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="aaa" src="http://www.tutorialsscripts.com/free-icons/programming-language/java-icons/purple-java-icon-256-x-256.gif" width="400" height="400" name="image" />
+</body> 
+<script>
+    var image = document.getElementById("aaa");
+    var img_array =[  "https://image.tmdb.org/t/p/w220_and_h330_face/pIkRyD18kl4FhoCNQuWxWu5cBLM.jpg",
+        "https://images.indianexpress.com/2022/06/major-movie-review-1200.jpg",
+        "https://img1.hotstarext.com/image/upload/f_auto,t_web_m_1x/sources/r1/cms/prod/2607/1062607-h-fa693eabb41d",
+        "https://lumiere-a.akamaihd.net/v1/images/p_aladdin2019_17638_d53b09e6.jpeg",
+        "https://igimages.gumlet.io/hindi/gallery/movies/tubelight/tubelight_poster.jpg?w=160&dpr=2.6"]
+    var index=0;
+    function slide()
+    {
+    
+        document["aaa"].src = img_array[index];
+        index++;
+        if(index>=img_array.length)
+        {
+        index=0;
+        }
+    }
+    setInterval("slide()",2000);
+    </script>
+    </head>
+    
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favourites Page</title>
+    <style>
+      /* All Your css for Favourites page goes here 
+        */  
+        #fav-container{
+        display: grid; 
+        width: 90%; 
+        grid-template-columns: repeat(4,1fr); 
+        margin: auto;  
+        gap: 20px;
+      } 
+      img{
+        width:100%;
+      } 
+      button{
+        background-color:red;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <h1>Masai Restaurant Finder</h1>
+      <a href="./index.html">Home</a>
+      <a href="./favourites.html">Favourites</a>
+    </div>
+    <h1 id="total">Your a total <span id="fav-total">0</span> elements in the favourites</h1>
+    <div id="fav-container">
+      <!-- Here Append All the Favourites-->
+    </div>
+  </body>
+  <script>
+    // All your JS code for Favourites Page goes here 
+    let container = document.getElementById("fav-container") 
+    let restdata = JSON.parse(localStorage.getItem("favourites"))  
+    let total = document.getElementById("fav-total");
+    if(restdata==null) 
+    restdata=[] 
+    display(restdata)
+    function display(data){
+    container.innerHTML=null; 
+   let count=0; 
+   let del=0;
+    data.forEach(element => { 
+      let card = document.createElement("div") 
+      let image = document.createElement("img") 
+      image.setAttribute("src",element.image) 
+      let name = document.createElement("h3")
+      name.innerText=element.name;
+      let price = document.createElement("h6")
+      price.innerText=element.price_starts_from;
+      let type = document.createElement("p") 
+      type.innerText=element.type;
+      let rating = document.createElement("p") 
+      rating.innerText=element.rating
+     let Delete = document.createElement("button");
+     Delete.innerText="Delete"  
+     card.append(image,name,price,type,rating,Delete) 
+     count++; 
+     //console.log(count)
+     container.append(card)  
+     Delete.addEventListener("click",()=>{ 
+      //del++;
+      card.innerHTML=null; 
+      //console.log(count)
+     })  
+      //console.log(count,del);
+    }); 
+    total.innerText=count;
+    }
+  </script>
+</html>

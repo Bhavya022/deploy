@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Button</button>
+</body> 
+<script>  
+//Async -> Sync  in js code always execute line by line.
+//console.log("Task-1"); 
+console.log("Task-2");   
+for(let i=0;i<10000000;i++){
+    if(i==0) 
+    console.log("Started"); 
+    if(i=10000000)
+    console.log("Ended");
+}
+console.log("Task-3");  
+console.log("Task-4");
+    </script>
+</html>

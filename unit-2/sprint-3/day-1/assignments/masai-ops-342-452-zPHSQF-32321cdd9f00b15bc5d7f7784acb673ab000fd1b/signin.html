@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in Page</title> 
+    <style>
+       #signin{ 
+  width: 30%; 
+  height: 200px; 
+  color: gray; 
+  border-radius: 10px ; 
+  margin: auto; 
+  background-color:white ; 
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <a href="./index.html">Signup</a>
+      <a href="./signin.html">Signin</a>
+    </div>
+    <div id="signin">
+      <h1 id="heading">Sign In</h1>
+      <form>
+        <input type="email" id="email" placeholder="email" /><br><br>
+        <input type="password" id="password" placeholder="password" /><br><br>
+        <input type="submit" value="Sign in" />
+      </form>
+    </div>
+  </body>
+  <script>
+    let lsdata = JSON.parse(localStorage.getItem("account-data"));
+    let myForm = document.querySelector("form");
+
+myForm.addEventListener("submit",(e)=>{
+let password = document.getElementById("password");
+let heading = document.getElementById("heading");
+if(password.value == lsdata.password.value){
+  heading.innerText ="Sign in Successful."
+} 
+else{
+  heading.innerText ="Wrong Credentials."
+}
+
+});
+  </script>
+</html>

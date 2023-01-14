@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body> 
+<script> 
+// https://restcountries.com/ 
+//1.fetch the data 
+// 2. Loop over the data and show it in dom.
+// 3.From api-> Name(element.name.official),Capital(element.capital[0]),Region(element.region),population(element.population),Flag(element.flag.png)
+let container = document.getElementById("container");
+
+let promise = fetch(" https://restcountries.com/v3.1/all");
+promise.then((responseObject)=>{
+    return responseObject.json();
+})
+.then((acctualData)=>{
+    console.log(acctualData);
+})  
+
+
+function displayCountries(data){
+    data.forEach(element => {
+        
+let card = document.createElement("div");
+let flag = document.createElement("img");
+flag.
+
+
+    });
+}      
+
+async function fetchdata2(){
+
+    
+fetch(" https://restcountries.com/v3.1/all");   
+}
+    </script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Data</title>
+  </head>
+  <body>
+    <form>
+      <input type="text" id="name" />
+      <input type="email" id="email" />
+      <input type="password" id="password" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+
+  <script>
+    let myForm = document.querySelector("form");
+
+    myForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      let formData = {
+        name: myForm.name.value,
+        email: myForm.email.value,
+        password: myForm.password.value,
+      };
+      console.log(formData);
+      // JSON(Javascript Object Notation)
+      localStorage.setItem("abcde", JSON.stringify(formData));
+    });
+
+    console.log(localStorage.getItem("abcde"));
+
+    let LSData = JSON.parse(localStorage.getItem("abcde"));
+    console.log(LSData.name);
+  </script>
+</html>
+
+<!-- 1. LocalStorage
+    a. setItem(stores the data in LS)
+    b. getItem(Gets the Data from LS)
+
+2. JSON
+   a. stringify(Converts any Object/Array to a String/JSON)
+   b. parse(Converts JSON to Object/Array) -->

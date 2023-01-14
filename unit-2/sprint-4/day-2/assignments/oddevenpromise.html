@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="enter data" id="data">
+</body>
+<script> 
+let data = document.getElementById("data").value;
+    function getData(num){
+         let promise = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+           if(isNaN(data)==false){
+            reject("error");
+           } else if(data%2==0){
+            response("even"); 
+           } 
+           else{
+            response("odd");
+           }
+        },2000)
+       
+       
+        }) 
+         return promise ;
+    }  
+    let abcd = getData(data); 
+    console.log(abcd); 
+    abcd.then((res)=>{
+        console.log(abcd);
+    }) 
+    .catch((error)=>{
+        console.log(abcd);
+    })
+    </script>
+</html>

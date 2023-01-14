@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+</head>
+<body>
+    <div id="cont">
+        <div>
+            <h1></h1>
+            <button></button>
+        </div>
+    </div>
+</body> 
+<script> 
+let arr =["Heading-1","Heading-2","Heading-2","Heading-3","Heading-4"];
+let cont = document.getElementById("cont"); 
+function createDOm(){ 
+    cont.innerTextc= null ;
+arr.forEach(function(element,index){ 
+    let div = document.createElement("div");
+    let heading = document.createElement("h1"); 
+    heading.innerText = element ;
+    let button = document.createElement("button");
+    button.innerText ="Delete" ; 
+    button.addEventListener("click",function(){
+        console.log(element,index); 
+       let deleted = arr.filter(function(el,i){
+            if(i===index){
+                return false;
+            } 
+            else{
+                return true;
+            }
+        });
+        arr = deleted; 
+        //Dom update after delete
+        createDOm(arr); 
+       // console.log(deleted)
+    });
+    div.append(heading,button);
+    div.style.display="flex";
+    cont.append(div);
+
+}) ;
+}
+    createDOm(arr);
+
+    </script>
+</html>

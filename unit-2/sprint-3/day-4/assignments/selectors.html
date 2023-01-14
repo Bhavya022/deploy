@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<h1 id="firsth1">First H1</h1>
+    <h1 id="secondh1">Second H1</h1>
+    <h3 >First H3</h3>
+    <h3 >Second H3</h3>
+    <h5 id="firsth5">First H5</h5>
+    <h5 id="secondh5">Second H5</h5>
+    <h5 id="thirdh5">Third H5</h5>
+    <div class="green">First DIV</div>
+    <div class="red">Second DIV</div>
+    <div class="blue">Third DIV</div>
+    <p class="green">First P</p>
+    <p class="red">Second P</p>
+    <p class="blue">Third P</p>
+    <hr />
+    <button onClick="changeH1()">Change H1</button>
+    <button onClick="changeH3()">Change H3</button>
+    <button onClick="changeH5()">Change H5</button>
+    <button onClick="changeGreen()">Change Green</button>
+    <button onClick="changeRed()">Change Red</button>
+    <button onClick="changeBlue()">Change Blue</button>
+    <script>
+      function changeH1() {
+        // the colour of first <h1> should turn to red 
+          document.getElementById("firsth1").style.color="red";  
+            
+      }
+
+      function changeH3() {
+        // the colour of all <h3> should turn to green 
+            document.getElementsByTagName("h3").style.color="green"; 
+      }
+
+      function changeH5() {
+        // the colour of all <h5> should turn to blue 
+            document.getElementsByTagName("h5").style.color="blue"; 
+      }
+
+      function changeGreen() {
+        // all the elements with the class green should change to green 
+        document.getElementsByClassName("green").style.color="green"; 
+      }
+
+      function changeRed() {
+        // all the elements with the class red should change to red 
+        document.getElementsByClassName("red").style.color="red";
+      }
+
+      function changeBlue() {
+        // all the elements with the class blue should change to blue 
+        document.getElementsByClassName("blue").style.color="blue";
+      }
+    </script>
+  </body>
+</html>

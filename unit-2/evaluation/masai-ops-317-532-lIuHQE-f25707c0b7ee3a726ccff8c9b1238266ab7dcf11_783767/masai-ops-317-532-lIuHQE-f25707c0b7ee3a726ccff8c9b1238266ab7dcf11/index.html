@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web-101 C2</title>
+    <style>
+      /* Write all necessery styles here  */ 
+
+      #top>div {
+        display: flex;  
+      
+    
+        width: 100%; 
+
+        align-items: center;  
+        align-content: stretch; 
+        @media screen  and (max-width:600px){
+          grid-template-columns:auto ;
+        } 
+        @media screen  and (max-width:800px) and (min-width:600px){
+          grid-template-columns:auto auto;
+        }
+        @media screen  and (min-width:800px){
+          grid-template-columns:auto auto auto;
+        }
+
+      }   
+      #top img{
+        width:50%; 
+        margin: auto;
+      }
+
+      #mid >div{
+        display: grid; 
+        grid-template-columns: repeat(3,1fr); 
+        grid-row: repeat(2,1fr); 
+        
+        row-gap: 10px; 
+        column-gap: 10px;  
+        background-color: grey;
+        @media screen and(min-width:600px)and(max-width:800px) { 
+        grid-template-columns:repeat(2,1fr); 
+      
+        
+       } 
+       @media screen and (max-width:600px){
+        grid-template-columns:repeat(1,1fr);
+       }
+
+       }  
+       #bottom >div{ 
+        display: grid; 
+        grid-template-columns: repeat(3,1fr); 
+        grid-row: repeat(2,1fr); 
+        
+        row-gap: 10px; 
+        column-gap: 10px;  
+        @media screen  and (max-width:600px){
+          grid-template-columns:auto ;
+        } 
+        @media screen  and (max-width:800px) and (min-width:600px){
+          grid-template-columns:auto auto;
+        }
+        @media screen  and (min-width:800px){
+          grid-template-columns:auto auto auto;
+        }
+        
+       }
+      p,h1,h2,h3{
+      text-align: center;
+        margin: auto;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="top">
+        <h1>Trillo Workbench</h1>
+        <p>Server-side Low-code Platform</p>
+        <div >
+          <!-- Here should be one div for the text part and one image. Use flex to create the layout  --> 
+          <div><h2>Trillo workbench helps build Google cloud applications and solution for 10%-20% cost and time by packaging standard functions in a runtime.</h2>
+          <h3>90% cost and Time Saving</h3>
+        <p>Trillo workbench can help you save upto 90% time and cost .you can customize it,or the Trillo team,its partners ,or the community can help you customize applications.
+          There is no vendor lock.you can still build the application you are otherwise building using the savings.In the meantime,you have something to sell and go to market.</p>
+      <h3>How Trillo Workbench achieves 90% saving</h3> 
+      <p>The 50%-90% of any application is standard.it deals with non-functional aspectssuch as database,security,workflow,scalability,etc. yet,to mix the application logic with thestandard code,you need to recreate all of it.Despite several existing libraries,it require heavy lifting.why not simply slide in the application's logic into a running engine, and voila,here comes the application.you have to build 50-90%.</p>
+      </div> 
+          <div><img src="https://www.trillo.io/wp-content/uploads/2022/04/trillo-Workbench-UI-Macbook.png"/></div>
+        </div>
+      </div>
+
+      <div id="mid">
+        <h1>Trillo Applications</h1>
+        <p>
+          Trillo Applications are customizable end-to-end applications (Open
+          Source Code). The can be used out of the box or extended.
+        </p>
+        <div>
+          <!-- Here you should have 6 children divs. Use grid to create the layout --> 
+          <div>
+            <img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+             <h3>Trillo Text Matching</h3> 
+             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, labore.</p>
+          </div>
+          <div><img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+            <h3>Trillo File Manager</h3> 
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, voluptates!</p>
+          </div>
+          <div><img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+           <h3>Trilo NLP</h3> 
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, cumque.</p>
+          </div>
+          <div><img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+            <h3>Trillo Text Vision AI</h3> 
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae, autem.</p>
+          </div>
+          <div><img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+           <h3>Trillo Document AI</h3> 
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, consequuntur.</p>
+          </div>
+          <div><img src="https://masai-course.s3.ap-south-1.amazonaws.com/editor/uploads/2022-11-22/Screenshot%202022-11-22%20at%2012.29.09%20PM_869111.png"/>
+            <h3>Trillo DICOM</h3> 
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione, consectetur!</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="bottom">
+        <h1>Use Cases</h1>
+        <p>
+          Trillo has readymade templates for several use cases that can be
+          customized quickly to deliver the solutions as per your requirements.
+          Some of these templates are described below.
+        </p>
+        <div>
+          <!-- Here you should have 6 children divs. Use grid to create the layout -->
+        <div>
+          <h3>Data Warehouse</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul></div>
+        <div>
+          <h3>New Web Applications</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul>
+        </div>
+        <div>
+          <h3>AI Driven workflows</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul>
+        </div>
+        <div>
+          <h3>AI Vision</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul>
+        </div>
+        <div>
+          <h3>storage</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul>
+        </div>
+        <div> 
+          <h3>Natural language Processing</h3> 
+          <ul><li>Ingest data from several data sources(oracle,Netsuits,API etc)</li> 
+          <li>Data Transformation scripts</li> 
+          <li>Data coaching creating materialized views</li> 
+          <li>scheduling queries,materialized queries to create materialized views</li>
+          <li>scheduling data ingestion tasks</li> 
+          <li>Extensive logging and reporting of the processing pipeline</li></ul>
+        </div>
+       
+       
+       
+    
+      </div>
+    </div>
+  </body>
+</html>

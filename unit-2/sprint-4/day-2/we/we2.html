@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body> 
+<script>
+    function waitPromise(ms){
+         let promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+     resolve("Promise Resolved") ;
+        },ms);
+         }) 
+         return promise ;
+    }  
+    let abcd = waitPromise(2000); 
+    console.log(abcd); 
+    abcd.then(()=>{
+        console.log(abcd);
+    }) 
+    abcd.catch(()=>{
+        console.log(abcd);
+    })
+</script>
+</html>

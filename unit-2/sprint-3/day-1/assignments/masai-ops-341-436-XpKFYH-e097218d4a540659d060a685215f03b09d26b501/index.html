@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>HOSPITAL- Doctor Records</title> 
+    <link rel="stylesheet" href="index.css" />
+  </head> 
+
+  <body> 
+    <h1>HOSPITAL - DOCTOR RECORDS</h1>
+    <!-- Use this form for data input  --> 
+    <form id="form">
+      <input placeholder="Name" type="text" id="name" />
+      <input placeholder="Doctor ID" type="text" id="doctor_id" />
+      <select id="specialization">
+        <option value="">Select Specialization</option>
+        <option value="Dermatologist">Dermatologist</option>
+        <option value="Dentist">Dentist</option>
+        <option value="Gynecologist">Gynecologist</option>
+      </select>
+      <input placeholder="Experience" type="number" id="experience" />
+      <input placeholder="Email" type="email" id="email" />
+      <input placeholder="Mobile No." type="number" id="mobile" />
+      <input type="submit" value="Submit" />
+    </form>
+
+    <!-- Use this Select tag for filter part  -->
+    <select id="filter">
+      <option value="">Select Specialization</option>
+      <option value="Dermatologist">Dermatologist</option>
+      <option value="Dentist">Dentist</option>
+      <option value="Gynecologist">Gynecologist</option>
+    </select>
+    <table id="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Doctor ID</th>
+          <th>Specialization</th>
+          <th>Experience in Years</th>
+          <th>Email</th>
+          <th>Mobile No</th>
+          <th>Role</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <!-- Append Rows here using JS & DOM  --> 
+      </tbody>
+    </table>
+  </body>
+  
+
+<script>
+
+let myform = document.getElementById("form");
+let body = document.querySelector("tbody"); 
+let filter = document.getElementById("filter");
+let data = [];
+myform.addEventListener("submit",(event)=>{
+event.preventDefault();
+
+let formDara ={
+    name: form.name.value,
+    doctor_id:form.doctor_id.value,
+    specialization:form.specialization.value,
+    experience:form.experience.value,
+    email:form.email.value,
+    mobile:form.mobile.value, 
+} ;
+//console.log(formDara); 
+data.push(formDara); 
+//console.log(data); 
+tbody.innerHTML = null;
+data.forEach((element,index)=>{
+
+    let tr = document.createElement("tr"); 
+    let td1 = document.createElement("td");
+    let td2 = document.createElement("td");  
+    let td3 = document.createElement("td"); 
+    let td4 = document.createElement("td"); 
+    let td5 = document.createElement("td");  
+    let td6 = document.createElement("td"); 
+    let td7 = document.createElement("td");
+    let td8 = document.createElement("td");
+    td1.innerText = element.name;
+    td2.innerText = element.doctor_id; 
+    td3.innerText = element.specialization;
+    td4.innerText = element.experience;
+    td5.innerText = element.email;
+    td6.innerText = element.mobile;
+    td8.innerText = "Delete"; 
+    td8.style.backgroundColor="red";
+    // Senior, if experience > 5 years
+   // Junior, if experience is between 2 and 5 years
+   //Trainee, if experience is less than or equal to 1 year 
+    if(td4.innerText>5){
+      td7.innerText="Senior";
+    } 
+    else if(td4.innerText>=2 && td4.innerText<=5){
+      td7.innerText="Junior";
+    } 
+    else{
+      td7.innerText="Trainee";
+    }
+    var index,table = document.getElementById("table");
+    for(let i=0;i<table.rows.length;i++){ 
+      td8.onclick=function(){
+       index=this.parentElement.rowIndex;
+      table.deleteRow(index); 
+      }
+    }
+    tr.append(td1,td2,td3,td4,td5,td6,td7,td8);
+    tbody.append(tr); 
+    let filterselect = document.getElementById("filter");
+ arr.forEach(function(element,index){
+    let Heading = document.createElement("h1");
+    Heading.innerText = element ;
+    cont.append(Heading);
+ }) 
+
+ filter.addEventListener("change",()=>{
+    console.log(filter.value) ; 
+    cont.innerText
+    let filtered =arr.filter(function(element,index){
+
+        if(element == filter.value){
+            return true;
+        } 
+        else{
+            return false; 
+        }
+    }) 
+    console.log(filtered);
+ })
+});
+});
+
+</script> 
+</html>

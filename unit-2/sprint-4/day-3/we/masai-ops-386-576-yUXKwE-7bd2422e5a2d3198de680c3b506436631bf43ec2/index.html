@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web Movie App</title>
+    <style>
+      /* Write necessery styles here  */
+    </style>
+  </head>
+  <body>
+    <div id="serach">
+      <input type="text" id="search-inp" placeholder="Search"/>
+      <button id="search-btn">Search</button>
+    </div>
+    <div id="movie_container"></div>
+  </body>
+
+  <script>
+    // Write necessery JS here 
+    let input = document.getElementById("search-inp");
+    let container = document.getElementById("movie_container"); 
+    let heading = document.createElement("h2"); 
+    let btn = document.getElementById("search-btn");
+
+btn.addEventListener("click",function(){
+ let keyWord = input.value;
+   let val = fetch("https://www.omdbapi.com/?apiKey=9d995d2&s=${keyWord}")  
+    //console.log(val);
+ val .then((responseObject)=>{
+ // console.log(responseObject.json()); 
+ return responseObject.json();
+})  
+val.then((actualData)=>{ 
+  let data = actualData.Search;
+  if(data==undefined){
+    container.innerHTML=null;
+    let h2 = document.createElement("h2");
+    h2.className ="error-container";
+    h2.innerText="Movie not found"; 
+    container.append(h2);
+  } else{
+    //console.log(actualData); 
+   displayProducts(actualData); 
+  }
+})  
+.catch((error)=>{
+    console.log(error);
+})  
+}) 
+// Here data is coming from api
+ function displayProducts(data){
+  data.forEach((element) => { 
+    let card = document.createElement("div");
+    let title = document.createElement("h2"); 
+    title.innerText = element.title;
+    let poster= document.createElement("img") 
+    poster.setAttribute("src",element.image); 
+    card.append(title,poster)
+    container.append(card); 
+    //console.log(card);
+
+  }); 
+
+ }
+ 
+
+  </script>
+</html>
