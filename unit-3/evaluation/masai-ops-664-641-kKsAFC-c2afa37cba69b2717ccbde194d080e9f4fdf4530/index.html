@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* All Your css for Home page goes here  */ 
+      #menu-container{
+        display: grid; 
+        grid-template-columns: repeat(4,1fr); 
+        width: 90%; 
+        margin: auto; 
+        gap: auto;
+      } 
+      img{
+        width: 100%;
+      } 
+      button{
+        background-color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Web Coffee Shop Menu</h1>
+      <a href="./index.html">Home</a>
+      <a href="./order.html">Ordered</a>
+    </div>
+    <div id="filter">
+      <input type="number" id="lower" />
+      <input type="number" id="upper" />
+      <button id="filter-btn">Filter</button>
+    </div>
+    <select id="sort">
+      <option value="">Sort By Price</option>
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+    <h1 id="alert"></h1>
+    <div id="menu-container">
+      <!-- Here Append All the Items  -->  
+
+    </div>
+  </body>
+  <script> 
+  let container = document.getElementById("menu-container")
+    // All your JS code for Home Page goes here
+    const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee`;
+  fetch(url) 
+  .then((res)=>{
+   return res.json()
+  })  
+  .then((res)=>{
+    console.log(res.data); 
+    displayProducts(res.data)
+  }) 
+  .catch((error)=>{
+    console.log(error);
+  })   
+
+  function displayProducts(data){
+    data.forEach(element => {
+      let card = document.createElement("div")  
+     let img = document.createElement("img") 
+     img.setAttribute("src",element.image);
+     let name = document.createElement("h2") 
+     name.innerText = element.title; 
+     let ing = document.createElement("p") 
+     ing.innerText = element.ingredients; 
+     let des = document.createElement("p") 
+     des.innerText = element.description ;
+     let price = document.createElement("h3") 
+     price.innerText= element.price; 
+     let buy = document.createElement("button") 
+     buy.innerText="Buy";
+     card.append(img,name,ing,des,price,buy)
+      container.append(card) 
+
+    });
+  }
+  </script>
+</html>
