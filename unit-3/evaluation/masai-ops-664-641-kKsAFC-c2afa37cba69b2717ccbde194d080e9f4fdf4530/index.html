@@ -17,9 +17,7 @@
       img{
         width: 100%;
       } 
-      button{
-        background-color: blue;
-      }
+      
     </style>
   </head>
 
@@ -46,7 +44,11 @@
     </div>
   </body>
   <script> 
-  let container = document.getElementById("menu-container")
+  let container = document.getElementById("menu-container")  
+  let lower = document.getElementById("lower").value 
+  let upper = document.getElementById("upper").value
+  let filterbtn = document.getElementById("filter-btn") 
+  let h1 = document.getElementById("alert")
     // All your JS code for Home Page goes here
     const url = `https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee`;
   fetch(url) 
@@ -55,6 +57,7 @@
   })  
   .then((res)=>{
     console.log(res.data); 
+    fetchData=res.data
     displayProducts(res.data)
   }) 
   .catch((error)=>{
@@ -75,11 +78,44 @@
      let price = document.createElement("h3") 
      price.innerText= element.price; 
      let buy = document.createElement("button") 
-     buy.innerText="Buy";
+     buy.innerText="Buy"; 
+     buy.addEventListener("click",()=>{
+      let cartData = JSON.parse(localStorage.getItem("buy")) 
+      if(cartData===null){
+        cartData =[]; 
+      }   
+      let isAlready = false;
+      for(let i=0;i<cartData.length;i++){
+        if(cartData[i].id===element.id){
+          isAlready = true; 
+          break;
+        }
+      }   
+      if(isAlready === true){
+        h1.innerText="Already Placed Order."
+      } 
+      else{
+        h1.innerText="Successfully Placed Order"
+      }
+      cartData.push(element);
+      localStorage.setItem("buy",JSON.stringify(cartData))
+     })
      card.append(img,name,ing,des,price,buy)
       container.append(card) 
 
-    });
-  }
+    });   }
+    let fetchData =[]
+    let filter = document.getElementById("filter") 
+    filterbtn.addEventListener("onclick",()=>{
+     let filtered = fetchData.filter((element)=>{ 
+      console.log(lower,upper); 
+      if(element.price>=lower && element.price<=upper){
+        return element;
+      } 
+      
+     }) 
+     renderfetch
+    }) 
+  
   </script>
 </html>
