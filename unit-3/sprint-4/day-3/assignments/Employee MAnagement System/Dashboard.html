@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title> 
+    <style>
+        
+*{
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color:palevioletred;
+}
+nav ul{
+    display: flex;
+}
+nav ul li{
+    list-style: none;
+    margin: 25px 50px;
+    
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.tab{
+   border: 1px solid red;
+    width: 80%;
+   margin: 30px auto auto auto;
+   overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid black;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
+
+  .btn-delete{
+    color: white;
+    background-color: red;
+    height: 30px;
+    width: 80px;
+  }
+
+  .btn-vaccinate{
+    color: white;
+    background-color: palevioletred;
+    height: 30px;
+    width: 80px;
+  }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <li><a href="Login.html">Registration Page</a></li>
+            <li><a href="Dashboard.html">Dashboard Page</a></li>
+            <li><a href="vaccinated.html">Vaccinated Page</a></li>
+        </ul>
+    </nav>
+
+    <br>
+
+    <form>
+        <label for="filter-vaccine">Filter by Vaccine:</label>
+        <select id="filter-vaccine" >
+            <option value="">All</option>
+            <option value="Covishield">Covishield</option>
+            <option value="Covaxin">Covaxin</option>
+            <option value="Sputnik">Sputnik</option>
+        </select>
+       
+		<label for="sort-age">Sort by Age:</label>
+		<select id="sort-age">
+    <option value="">Sort By Age</option>
+    <option value="low">Low To High</option>
+    <option value="high">High To Low</option>
+  </select>
+		
+        <label for="filter-priority">Filter by Priority:</label>
+        
+                <select id="filter-priority" >
+                    <option value="">All</option>
+                    <option value="p0">p0</option>
+                    <option value="p1">p1</option>
+                    <option value="p2">p2</option>
+                    <option value="p3">p3</option>
+                </select>
+                </form>
+    <div class="tab">
+
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th> ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Designation</th>
+                <th>Priority</th>
+                <th>Vaccine</th>
+                <th>OTP</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+    
+    </div>
+</body> 
+<script src="dashboard.js"></script>
+</html>

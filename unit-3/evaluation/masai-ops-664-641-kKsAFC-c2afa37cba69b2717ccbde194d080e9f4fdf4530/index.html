@@ -63,7 +63,7 @@
   .catch((error)=>{
     console.log(error);
   })   
-
+  
   function displayProducts(data){
     data.forEach(element => {
       let card = document.createElement("div")  
@@ -104,18 +104,91 @@
       container.append(card) 
 
     });   }
-    let fetchData =[]
+    let fetchData =[] 
+    function fetchAndRenderCoffee(url){
+      fetch(url) 
+      .then((res)=>res.json()) 
+      .then(data=>{
+        fetchData= data.data.map((ele)=>{
+          id:ele.id,
+          name:ele.title,
+          desc:ele.des.substring(0,75),
+          price:ele.price,
+          image:`${ele.image}`,
+          ingredients:ele.ing[0] 
+        })
+      })
+    }
     let filter = document.getElementById("filter") 
-    filterbtn.addEventListener("onclick",()=>{
+    filterbtn.addEventListener("click",()=>{
      let filtered = fetchData.filter((element)=>{ 
-      console.log(lower,upper); 
+      console.log(lower,upper) 
       if(element.price>=lower && element.price<=upper){
         return element;
       } 
       
      }) 
-     renderfetch
-    }) 
-  
+     renderCoffee(filter)
+    })  
+    function renderCoffee(fetchData){
+     let coffeeList=`
+     <div id="cardList">
+       ${fetchData.map((ele)=>{
+        getcard(
+          ele.id,
+          ele.name,
+          ele.des,
+          ele.price,
+          ele.image,
+          ele.ing
+        )
+       }
+       ).join('')}
+      </div>
+     `  
+     
+    }
+    
+    function getcard(id,name,price,image,ingredients){
+     let card=`
+     <div id="card">
+      <img src=${image} alt="coffee"/>
+      <h3>${name}</h3> 
+      <p>${ing}</p>
+      <p>${des}</p>
+      <p>${price}</p>
+      <button>Buy</button>
+      </div>
+     ` 
+    }
+    
+    // function fetch(){
+    //   let promise = fetch(url) 
+    //   promise.then((res)=>{
+    //     return res.json()
+    //   }) 
+    //   .then((acctual)=>{
+
+    //   }) 
+    //   .catch((error)=>{
+    //     console.log((error));
+    //   })
+    // }  
+
+    let sort = document.getElementById("sort");
+    sort.addEventListener("change",(e)=>{
+      let selected = e.target.value 
+      console.log(selected) 
+      if(selected=='asc'){
+      container.innerHTML=null 
+      let apiInc = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee?sort=price&order=asc' 
+      fetch(apiInc)
+      } 
+      else if(selected=='desc'){
+        container.innerHTML=null 
+        let apidec ='https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-coffee?sort=price&order=desc' 
+        fetch(apidec)
+      }
+    })
   </script>
 </html>

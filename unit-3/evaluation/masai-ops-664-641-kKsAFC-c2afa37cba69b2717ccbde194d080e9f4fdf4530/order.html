@@ -6,7 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Order Page</title>
     <style>
-      /* All Your css for Order page goes here  */
+      /* All Your css for Order page goes here  */ 
+      #order-container{
+        display: grid; 
+        grid-template-columns: repeat(4,1fr); 
+        width: 90%; 
+        margin: auto; 
+        gap: auto;
+      } 
+      img{
+        width: 100%;
+      } 
+      
     </style>
   </head>
   <body>
@@ -27,6 +38,43 @@
     </div>
   </body>
   <script>
-    // All your JS code for Order Page goes here
+    // All your JS code for Order Page goes here  
+    let container = document.getElementById("order-container") 
+
+    let cartData = JSON.parse(localStorage.getItem("buy")) 
+    if(cartData==null){
+      cartData=[]
+    }  
+    displayProducts(cartData)   
+
+    
+    function displayProducts(data){
+    data.forEach(element => {
+      let card = document.createElement("div")  
+     let img = document.createElement("img") 
+     img.setAttribute("src",element.image);
+     let name = document.createElement("h2") 
+     name.innerText = element.title; 
+     let ing = document.createElement("p") 
+     ing.innerText = element.ingredients; 
+     let des = document.createElement("p") 
+     des.innerText = element.description ;
+     let price = document.createElement("h3") 
+     price.innerText= element.price; 
+     let del = document.createElement("button") 
+     del.innerText="cancel"; 
+     let inc = document.createElement("button") 
+     inc.innerText="+"   
+     inc.addEventListener("onclick",()=>{
+      
+     })
+     let quantity = document.createElement("span") 
+     quantity.innerText = "0"
+     let dec = document.createElement("button") 
+     dec.innerText="-"
+     card.append(img,name,ing,des,price,inc,quantity,dec,del)
+      container.append(card) 
+
+    });   }
   </script>
 </html>
