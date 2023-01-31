@@ -193,26 +193,27 @@ let areasDirectory = areas.reduce((acc,item)=>{
 },{})
 function massageArray(inputArray) {
   // Your solution here. 
-  exampleInputArray.reduce((acc,item)=>{
-    let obj ={} 
-    obj.productId = item.idMeal,
-    obj.productTitle = item.strMeal,
-    obj.Category = categoriesDirectory[item.Category],
-    obj.Area = areasDirectory[item.name] ,
+ let x= inputArray.reduce((acc,item)=>{
+     let arr=[] 
+     let obj={}
+    obj["productId"] = item.idMeal;
+    obj["productTitle"] = item.strMeal;
+    obj["Category"] = categoriesDirectory[item.Category];
+    obj["Area"] = areas[(item.Area)-1].name ;
         
-     obj.Ingredients = obj.Ingredients||[] 
+     obj["ingredients"] = [] 
         for(let i=0;i<=20;i++){
-      item[`strIngredient${i}`] && obj.Ingredients.push({
+      item[`strIngredient${i}`] &&  item[`strMeasure${i}`]&& arr.push({
         ingredient:item[`strIngredient${i}`], 
         measure:item[`strMeasure${i}`]
       })
-     } 
-
+     }  
+     obj["Ingredients"]=arr;
+   acc.push(obj)
+  return acc  
   
- 
-  acc.push(obj) 
-  return acc 
-  },[])
+  },[]) 
+  return x
 }
 
 // Example Invocation
