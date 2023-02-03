@@ -14,7 +14,7 @@ test("Mobie class is a constructor which is accepting values", () => {
 test("unlock pin is a private value", () => {
   var first = new Mobile("onplus", "0889", "0000")
   expect(first.unlockPin).toBe(undefined)
-  
+
   var second = new Mobile("onplus", "0889", "1000")
   expect(second.unlockPin).toBe(undefined)
 
