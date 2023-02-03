@@ -3,19 +3,20 @@
 */
 
 function productFactory(name, price) {
- let obj={} 
+  let obj={} 
  obj.name=name 
  obj.price=price 
- obj.increasePrice=function(amount){
-  return `${obj.price+amount}`
- } 
- obj.decreasePrice = function(amount){
-    return `${obj.price-amount}`
+  obj.increasePrice=function(amount){
+    this.price +=amount
+  } 
+  obj.decreasePrice = function(amount){
+     this.price = price-amount
  } 
  obj.displayInfo = function(){
-    console.log(`${name} costs Rs .${price}`)
+ console.log (`${this.name} costs Rs.${this.price}`) 
+    return `${this.name} costs Rs.${this.price}`
  } 
- return obj 
+ return obj  
 }
 
 // example invocation
@@ -29,7 +30,20 @@ function productFactory(name, price) {
 /*
 ## Problem 2.
 */
-function ProductConstructor(name, price) {
+function ProductConstructor(name, price) { 
+
+    this.name=name 
+ this.price=price 
+  this.increasePrice=function(amount){
+    this.price +=amount
+  } 
+  this.decreasePrice = function(amount){
+     this.price = price-amount
+ } 
+ this.displayInfo = function(){
+ console.log (`${this.name} costs Rs.${this.price}`) 
+    return `${this.name} costs Rs.${this.price}`
+ } 
 
 }
 
@@ -44,9 +58,24 @@ function ProductConstructor(name, price) {
 /*
 ## Problem 3.
 */
-class ProductClass {
-
+class ProductClass { 
+    constructor(name,price){
+        this.name=name,
+        this.price=price
+    }
+   
+     increasePrice(amount){
+       this.price +=amount
+     } 
+     decreasePrice(amount){
+        this.price -= amount
+    } 
+    displayInfo(){
+    console.log (`${this.name} costs Rs.${this.price}`) 
+       return `${this.name} costs Rs.${this.price}`
+    }  
 }
+
 
 // let p1 = new Product("Notebook", 400);
 // console.log(p1);
