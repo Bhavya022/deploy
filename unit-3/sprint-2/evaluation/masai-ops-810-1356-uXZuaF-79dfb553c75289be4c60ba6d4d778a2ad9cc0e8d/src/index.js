@@ -18,7 +18,8 @@ function Mammal (name, type, hasFur) {
 Mammal.prototype.makeSound = function(){
     return "Mammal is making a sound"
 } 
-let m = new Mammal("Fluffy", "mammal", true);
+let m = new Mammal("Fluffy", "mammal", true); 
+Object.setPrototypeOf(Mammal.prototype,Animal.prototype)
 function Dog(name, type, hasFur, breed) {
    Mammal.call(this) 
    this.name=name,
@@ -29,7 +30,7 @@ function Dog(name, type, hasFur, breed) {
 Dog.prototype.makeSound=function(){
     return "Woof Woof!"
 }
-//Object.setPrototypeOf(Mammal.prototype,Dog.prototype)
+Object.setPrototypeOf(Dog.prototype,Mammal.prototype)
 let d = new Dog("Fido", "dog", true, "Labrador");
 class Character {
   constructor(name,health,attackPower){
