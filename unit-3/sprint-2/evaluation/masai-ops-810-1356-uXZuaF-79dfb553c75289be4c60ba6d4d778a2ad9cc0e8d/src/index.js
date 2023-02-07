@@ -53,15 +53,15 @@ Character.prototype.isAlive = function(){
     }
 }
 class Warrior extends Character {
-  constructor(weapon,armor){ 
-    super(this.name,this.health,this.attackPower) 
+  constructor(name,health,attackPower,weapon,armor){  
+    super(name,health,attackPower)
     this.weapon=weapon, 
     this.armor=armor
   }
 }
-Warrior.prototype.attack = function(){
+Warrior.prototype.attack = function(Character){
     if(this.weapon=="sword"){
-      return  `${this.attackPower=this.attackPower+10}`;
+      return  `${Character.health-=this.attackPower+10}`;
     }
 } 
 Warrior.prototype.defend=function(){
