@@ -26,14 +26,14 @@ let userAuthToken = localStorage.getItem("accessToken")||null
 let userobj = JSON.parse(localStorage.getItem("user"))|| null 
 
 function userlogin(){
-  fetch(`${baseServerURL}/login`,{
+  fetch(userLoginURL,{
     method:'POST',
     headers:{
       "Content-type":"application/json",
     },
     body:JSON.stringify({
       username:"admin",
-      pass:"admin",
+      pass:"admin"
     })
   }) .then((res)=>{return res.json()})
   .then((data)=>{console.log(data)
@@ -73,22 +73,21 @@ async function loginu(data){
   catch(err){
     console.log(err)
   }
-}
-  
+ }
 
-
-
-getTodoButton.addEventListener('click',async function(){
+let todoData =[]
+getTodoButton.addEventListener('click', function(){
   try{
-let res = await fetch(urlTodos,{
+let res =  fetch(`${urlTodos}`,{
   method:"GET",
   headers:{
     "Content-Type":"application/json",
     "Authorization": `Bearer ${userAuthToken}`  
   }
 })  
-const data = await res.json()  
-console.log(data)
+const data =  res.json()  
+console.log(data) 
+todoData.push(data)
  rendercardlist(data)
   } 
   catch{
@@ -120,3 +119,25 @@ function rendercardlist(cardData){
   mainSection.innerHTML=cardlist
 }
 
+ sortHighToLow.addEventListener("click",()=>{
+   let sortedData = tododata.sort((a,b)=>{
+     return b.title-a.title
+   }) 
+   rendercardlist(sortedData)
+ }) 
+ sortLowToHigh.addEventListener("click",()=>{
+   let sortedData = tododata.sort((a,b)=>{
+    return a.title-b.title
+   }) 
+   rendercardlist(sortedData)
+ }) 
+ filterCompleted.addEventListener("click",()=>{
+   let filterData = todoData.filter((e)=>{
+     e.completed==true;
+   })
+ }) 
+ filterPending.addEventListener("click",()=>{
+  let filterData = todoData.filter((e)=>{
+     e.completed==false;
+   })
+ })
