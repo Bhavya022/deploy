@@ -20,7 +20,9 @@ let getTodoButton = document.getElementById("fetch-todos");
 let sortLowToHigh = document.getElementById("sort-low-to-high");
 let sortHighToLow = document.getElementById("sort-high-to-low");
 let filterCompleted = document.getElementById("filter-completed");
-let filterPending = document.getElementById("filter-pending");
+let filterPending = document.getElementById("filter-pending"); 
+
+let userAuthToken = localStorage.getItem("accessToken")||null
 
 loginUserButton.addEventListener('click',loginuser)
 async function loginuser(){  
@@ -35,7 +37,7 @@ async function loginu(data){
   try{
   const login_req = await fetch(`${userLoginURL}`,{ 
     method:'POST',
-    headers:{
+    header:{
       "Content-type":"application/json" 
     } ,
     body:JSON.stringify(data) 
@@ -43,7 +45,7 @@ async function loginu(data){
   })
     let da= login_req.json()
     console.log(da) 
-    notificationWrapper.innerHTML=`Hey ${data.username}`
+    notificationWrapper.innerHTML=`hey ${data.username}, welcome back! message.`
   }
   catch(err){
     console.log(err)
@@ -69,9 +71,9 @@ getTodoButton.addEventListener('click',async function(){
   try{
 let res = fetch(`${urlTodos}`,{
   method:"GET",
-  headers:{
+  header:{
     "Content-Type":"application/json",
-    "Authorization": `Bearer ${accessToken}`  
+    "Authorization": `Bearer ${userAuthToken}`  
   }
 })
   } 
