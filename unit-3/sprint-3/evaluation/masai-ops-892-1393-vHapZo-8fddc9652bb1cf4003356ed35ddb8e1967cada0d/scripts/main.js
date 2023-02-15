@@ -22,23 +22,24 @@ let sortHighToLow = document.getElementById("sort-high-to-low");
 let filterCompleted = document.getElementById("filter-completed");
 let filterPending = document.getElementById("filter-pending"); 
 
-let userAuthToken = localStorage.getItem("accessToken")||null 
+let userAuthToken = localStorage.getItem("token")||null 
 let userobj = JSON.parse(localStorage.getItem("user"))|| null 
-
 function userlogin(){
-  fetch(userLoginURL,{
+    fetch(userLoginURL,{
     method:'POST',
     headers:{
       "Content-type":"application/json",
     },
     body:JSON.stringify({
-      username:"admin",
-      pass:"admin"
+      "username":"admin",
+      "password":"admin"
     })
   }) .then((res)=>{return res.json()})
-  .then((data)=>{console.log(data)
+  .then((data)=>{
+    console.log(data)
   localStorage.setItem("token",data.accessToken);
-  localStorage.setItem("user",JSON.stringify(data))
+  localStorage.setItem("user",JSON.stringify(data)) 
+
 })
 }  
 function greet(name){
@@ -56,46 +57,47 @@ loginUserButton.addEventListener('click',()=>{
 
 })
   
-async function loginu(data){ 
-  try{
-  const login_req = await fetch(userLoginURL,{ 
-    method:'POST',
-    header:{
-      "Content-type":"application/json" 
-    } ,
-    body:JSON.stringify(data) 
+// async function loginu(data){ 
+//   try{
+//   const login_req = await fetch(userLoginURL,{ 
+//     method:'POST',
+//     header:{
+//       "Content-type":"application/json" 
+//     } ,
+//     body:JSON.stringify(data) 
   
-  })
-    let da= login_req.json()
-    console.log(da) 
-    notificationWrapper.innerHTML=`hey ${data.username}, welcome back! message.`
-  }
-  catch(err){
-    console.log(err)
-  }
- }
+//   })
+//     let da= login_req.json()
+//     console.log(da) 
+//     notificationWrapper.innerHTML=`hey ${data.username}, welcome back! message.`
+//   }
+//   catch(err){
+//     console.log(err)
+//   }
+//  }
 
 let todoData =[]
-getTodoButton.addEventListener('click', function(){
+getTodoButton.addEventListener('click',async()=>{
   try{
-let res =  fetch(`${urlTodos}`,{
+  let res = await fetch(urlTodos,{
   method:"GET",
   headers:{
     "Content-Type":"application/json",
     "Authorization": `Bearer ${userAuthToken}`  
   }
 })  
-const data =  res.json()  
+let data = await res.json()  
 console.log(data) 
-todoData.push(data)
+todoData.push(data)  
+console.log(todoData)
  rendercardlist(data)
   } 
-  catch{
-   // console.log(err)
+  catch(err){
+    console.log(err)
   }
 })  
 
-function getCard(id,title,completed){
+function getCard(id,title){
 let card=`
 <label class="todo-item-label">
 <input class="todo-item-checkbox" data-id=${id} type="checkbox" checked>
@@ -109,8 +111,8 @@ function rendercardlist(cardData){
   <div class="todo-list-wrapper" class="todo-list-wrapper">
    ${cardData.map((item)=> getCard(
     item.id,
-    item.title,
-    item.completed
+    item.title
+
    )
    ).join("")
   }
@@ -119,14 +121,14 @@ function rendercardlist(cardData){
   mainSection.innerHTML=cardlist
 }
 
- sortHighToLow.addEventListener("click",()=>{
-   let sortedData = tododata.sort((a,b)=>{
+ sortHighToLow.addEventListener("click", ()=>{ 
+   let sortedData = todoData.sort((a,b)=>{
      return b.title-a.title
    }) 
    rendercardlist(sortedData)
  }) 
  sortLowToHigh.addEventListener("click",()=>{
-   let sortedData = tododata.sort((a,b)=>{
+   let sortedData = todoData.sort((a,b)=>{
     return a.title-b.title
    }) 
    rendercardlist(sortedData)
