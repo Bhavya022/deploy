@@ -102,9 +102,9 @@ function form(month){
  }
  function cards(ele){
     let div = document.createElement("div") 
-    div.innerHTML=`<p>${ele.name}</p> <p>${ele.desc}</p> <p>${ele.meet}</p><select><option value="Week-1">Week-1</option>
+    div.innerHTML=`<p>${ele.name}</p> <p>${ele.desc}</p> <p>${ele.meet}</p><select><optgroup label=${ele.week}><option value="Week-1">Week-1</option>
     <option value="Week-1">Week-2</option> 
     <option value="Week-1">Week-3</option>
-    <option value="Week-1">Week-4</option></select>` 
+    <option value="Week-1">Week-4</option>></optgroup></select><br><button style="background-color:red">DELETE</button>` 
     return div
  }
