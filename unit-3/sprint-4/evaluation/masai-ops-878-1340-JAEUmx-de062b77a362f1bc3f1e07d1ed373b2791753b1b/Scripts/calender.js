@@ -70,5 +70,41 @@ function form(month){
  function val(){
     let month=document.getElementById("month").value
         console.log(month) 
-        form(month)
+        displayweek(month)
+ }  
+
+ function displayweek(data="January"){
+    w1.innerHTML="" 
+    w2.innerHTML=""  
+    w3.innerHTML=""  
+    w4.innerHTML=""  
+    let filtermonth = user.filter((ele,index)=>{
+        return ele.month == data
+    }) 
+    filtermonth.forEach((ele,index)=>{
+        if(ele.week=="Week-1"){
+            let getcards = cards(ele) 
+            w1.append(getcards)
+        } 
+       else if(ele.week=="Week-2"){
+            let getcards = cards(ele) 
+            w2.append(getcards)
+        } 
+      else  if(ele.week=="Week-3"){
+            let getcards = cards(ele) 
+            w3.append(getcards)
+        } 
+      else  if(ele.week=="Week-4"){
+            let getcards = cards(ele) 
+            w4.append(getcards)
+        }
+    })
+ }
+ function cards(ele){
+    let div = document.createElement("div") 
+    div.innerHTML=`<p>${ele.name}</p> <p>${ele.desc}</p> <p>${ele.meet}</p><select><option value="Week-1">Week-1</option>
+    <option value="Week-1">Week-2</option> 
+    <option value="Week-1">Week-3</option>
+    <option value="Week-1">Week-4</option></select>` 
+    return div
  }
