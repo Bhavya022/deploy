@@ -1,6 +1,6 @@
 // Write code related to Calender page here 
 let user = JSON.parse(localStorage.getItem("meets"))||[] 
-let month=document.getElementById("month").value  
+  
 let cal=document.getElementsByClassName("calender")
 let w1=document.getElementById("Week-1")
 
@@ -9,15 +9,17 @@ let w2=document.getElementById("Week-2")
 let w3=document.getElementById("Week-3")  
 
 let w4=document.getElementById("Week-4") 
-function form(){
+function form(month){
     user.forEach(element => {   
         let main = document.createElement("div")
         let name = document.createElement("p")  
         let desc = document.createElement("p")  
         let meetType = document.createElement("p")  
         let week = document.createElement("select")  
-        let del= document.createElement("button") 
-       if(element.week=="Week-1"){
+        let del= document.createElement("button")   
+        let month=document.getElementById("month").value
+        console.log(month)
+       if(element.month==month && element.week=="Week-1" ){
         name.textContent=element.name; 
         desc.textContent=element.desc ;
         meetType.textContent=element.meet ;
@@ -27,7 +29,7 @@ function form(){
         w1.append(main)
         
        }  
-       if(element.week=="Week-2"){
+       if(element.month==month && element.week=="Week-2" ){
         name.textContent=element.name; 
         desc.textContent=element.desc ;
         meetType.textContent=element.meet ;
@@ -37,7 +39,7 @@ function form(){
         w2.append(main)
         
        }  
-       if(element.week=="Week-3"){
+       if(element.month==month && element.week=="Week-3"){
         name.textContent=element.name; 
         desc.textContent=element.desc ;
         meetType.textContent=element.meet ;
@@ -47,7 +49,7 @@ function form(){
         w3.append(main)
         
        }  
-       if(element.week=="Week-4"){
+       if(element.month==month && element.week=="Week-4" ){
         name.textContent=element.name; 
         desc.textContent=element.desc ;
         meetType.textContent=element.meet ;
@@ -58,12 +60,15 @@ function form(){
         
        }  
        
-        
+    
     
          
         
     });
     
 }
- 
-form()
+ function val(){
+    let month=document.getElementById("month").value
+        console.log(month) 
+        form(month)
+ }
