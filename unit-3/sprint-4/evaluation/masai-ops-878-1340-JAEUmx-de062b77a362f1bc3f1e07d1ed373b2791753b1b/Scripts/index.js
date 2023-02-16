@@ -1,7 +1,7 @@
 // Write code related to Home page here
-var form = document.querySelector("form") 
 
-form.addEventListener("click",()=>{ 
+
+function submitform(){ 
  let user = JSON.parse(localStorage.getItem("meets"))|| []
   var name = document.getElementById("name").value 
   var desc = document.getElementById("desc").value  
@@ -14,4 +14,4 @@ form.addEventListener("click",()=>{
   user.push(obj)  
   localStorage.setItem("meets",JSON.stringify(user)) 
 
-})
+}
