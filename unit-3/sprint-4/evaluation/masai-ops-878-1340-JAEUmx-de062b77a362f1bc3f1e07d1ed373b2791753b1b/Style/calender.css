@@ -1,2 +1,19 @@
-@media only screen and (max-width: 900px) {
-}
+@media only screen and (max-width: 900px) { 
+    
+      
+}   
+#navbar{
+    text-align: center; 
+    margin: auto;
+  } 
+  .calender{
+    text-align: center; 
+    margin: auto;  
+    display: flex; 
+    margin: auto;
+  }  
+  #month{
+    text-align: center; 
+    margin: auto;
+  }
+

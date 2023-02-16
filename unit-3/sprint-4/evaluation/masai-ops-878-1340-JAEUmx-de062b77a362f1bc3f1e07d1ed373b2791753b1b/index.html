@@ -23,14 +23,14 @@
     <div id="create">
       <h1>Create A Meet</h1>
       <form>
-        <input id="name" placeholder="Name" type="text" />
+        <input id="name" placeholder="Name" type="text" required/>
         <textarea
           placeholder="Description"
           id="desc"
           rows="4"
           cols="50"
-        ></textarea>
-        <select id="month">
+        required></textarea>
+        <select id="month" required>
           <option value="">Select Month</option>
           <option value="January">January</option>
           <option value="February">February</option>
@@ -45,14 +45,14 @@
           <option value="November">November</option>
           <option value="December">December</option>
         </select>
-        <select id="week">
+        <select id="week" required>
           <option value="">Select Week</option>
           <option value="Week-1">Week-1</option>
           <option value="Week-2">Week-2</option>
           <option value="Week-3">Week-3</option>
           <option value="Week-4">Week-4</option>
         </select>
-        <select id="meetType">
+        <select id="meetType" required>
           <option value="">Select Meet Type</option>
           <option value="Offline">Offline</option>
           <option value="Zoom">Zoom</option>
