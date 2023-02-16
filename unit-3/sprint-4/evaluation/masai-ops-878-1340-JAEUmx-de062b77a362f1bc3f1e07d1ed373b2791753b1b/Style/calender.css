@@ -1,6 +1,9 @@
 @media only screen and (max-width: 900px) { 
     
-      
+    .calender{
+        flex-direction: column; 
+        display: flex;
+    }
 }   
 #navbar{
     text-align: center; 
@@ -15,5 +18,5 @@
   #month{
     text-align: center; 
     margin: auto;
-  }
-
+  } 
+  
