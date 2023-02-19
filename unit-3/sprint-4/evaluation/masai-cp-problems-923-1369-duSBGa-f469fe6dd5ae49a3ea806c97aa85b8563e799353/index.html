@@ -86,7 +86,7 @@
   <script type="module">
     // All Your Script for Home Page Goes Here 
     const url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products' 
-    let container = document.getElementById("product-container");  
+    let container = document.getElementById("product-container div");  
     let alert = document.getElementById("alert") 
     let filter = document.getElementById("category-filter")
     let fetchdata=[]  
@@ -127,8 +127,8 @@ return res.json()
      img.setAttribute("src",element.image) 
     let title = document.createElement("h2") 
      title.innerText=element.title 
-    // let brand = document.createElement("h4") 
-    //  brand.innerText=element.brand
+     let brand = document.createElement("h4") 
+      brand.innerText=element.brand
     let cat = document.createElement("h4") 
      cat.innerText=element.category 
     let price = document.createElement("h4") 
@@ -156,7 +156,7 @@ return res.json()
         alert.innerText="Product added to The cart"
       } 
     })
-    card.append(img,title,cat,price,cart) 
+    card.append(img,title,brand,cat,price,cart) 
     div.append(card)
     container.append(div)
     });
