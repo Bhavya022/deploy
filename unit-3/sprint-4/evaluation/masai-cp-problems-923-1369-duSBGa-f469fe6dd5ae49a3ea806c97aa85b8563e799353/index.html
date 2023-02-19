@@ -159,7 +159,7 @@
         }
         let ispresent = false
         for (let i = 0; i < cartdata.length; i++) {
-          if (cartdata[i].id === element.id) {
+          if (cartdata[i] === element.id) {
             ispresent = true
             break
           }
@@ -168,7 +168,7 @@
           alert.innerText = "Product already in the cart"
         }
         else {
-          cartdata.push(element)
+          cartdata.push(element.id)
           localStorage.setItem("cart", JSON.stringify(cartdata))
           alert.innerText = "Product added to The cart"
         }
