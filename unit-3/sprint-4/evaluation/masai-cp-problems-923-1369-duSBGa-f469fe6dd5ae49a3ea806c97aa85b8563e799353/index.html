@@ -114,14 +114,14 @@ return res.json()
         fetchdata=data.data 
         console.log(data.data) 
         display(data.data)
-    }) 
+    }) ;
 
    }
     
    let cartdata = JSON.parse(localStorage.getItem("cart")) ||[]
     
     function display(data){  
-      //console.log(data)
+      console.log(data)
       container.innerHTML=null;
     data.map((element) => { 
       let div = document.createElement("div")
