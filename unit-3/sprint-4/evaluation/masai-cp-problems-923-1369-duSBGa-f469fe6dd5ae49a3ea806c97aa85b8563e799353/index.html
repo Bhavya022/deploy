@@ -120,7 +120,8 @@ return res.json()
     function display(data){  
       //console.log(data)
       container.innerHTML=null;
-    data.map((element) => {
+    data.map((element) => { 
+      let div = document.createElement("div")
     let card = document.createElement("div") 
     let img=document.createElement("img") 
      img.setAttribute("src",element.image) 
@@ -156,7 +157,8 @@ return res.json()
       } 
     })
     card.append(img,title,cat,price,cart) 
-    container.append(card)
+    div.append(card)
+    container.append(div)
     });
     }
   </script>
