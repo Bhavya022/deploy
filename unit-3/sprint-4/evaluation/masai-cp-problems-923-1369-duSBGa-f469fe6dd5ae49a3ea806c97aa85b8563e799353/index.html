@@ -6,7 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
     <style>
-      /* All CSS For Home Page Goes Here  */
+      /* All CSS For Home Page Goes Here  */ 
+      #product-container{
+        display: grid; 
+        width: 90%; 
+        grid-template-columns: repeat(3,1fr); 
+        margin: auto; 
+        gap:20px;
+      } 
+      img{
+        width:100%;
+      } 
+      button{
+        background-color: gray; 
+        color: black;
+      }
     </style>
   </head>
 
@@ -95,7 +109,7 @@ return res.json()
     function display(data){  
       console.log(data)
       container.innerHTML=null;
-    data.forEach(element => {
+    data.forEach((element) => {
     let card = document.createElement("div") 
     let img=document.createElement("img") 
      img.setAttribute("src",element.image) 
@@ -115,20 +129,20 @@ return res.json()
       cartdata=[] 
     } 
     let ispresent = false 
-    for(let i=0;i<cartdata;i++){
+    for(let i=0;i<cartdata.length;i++){
       if(cartdata[i].id===element.id){
         ispresent=true 
         break 
       } 
-      if(ispresent==true){
+    }
+      if(ispresent===true){
         alert.innerText="Product already in the cart" 
       } 
       else{
         cartdata.push(element) 
         localStorage.setItem("cart",JSON.stringify(cartdata)) 
         alert.innerText="Product added to The cart"
-      }
-    }
+      } 
     })
     card.append(img,title,brand,cat,price,cart) 
     container.append(card)
