@@ -86,7 +86,9 @@
   <script type="module">
     // All Your Script for Home Page Goes Here 
     const url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products' 
-    let container = document.querySelector("product-container div");  
+    let container = document.querySelector("product-container div");   
+    let roadster = document.getElementById("roadster") 
+    let blackberrys = document.getElementById("blackberrys") 
     let alert = document.getElementById("alert") 
     let filter = document.getElementById("category-filter")
     let fetchdata=[]  
@@ -102,20 +104,21 @@
       }
     }) 
     display(filtered)
-   })
-   let data= fetch(url)
+   }) 
+   function fetchAndRenderCards(){
+    fetch(url)
       .then((res)=>{
 return res.json()  
       }) 
       .then((data)=>{
         fetchdata=data.data 
         console.log(data.data) 
-        display(fetchdata)
+        display(data.data)
     }) 
-    .catch((err)=>{
-      console.log(err)
-    })
-   
+
+   }
+    
+   let cartdata = JSON.parse(localStorage.getItem("cart")) ||[]
     
     function display(data){  
       //console.log(data)
@@ -136,7 +139,7 @@ return res.json()
     let cart = document.createElement("button")  
     cart.innerText="Add To Cart"  
     cart.addEventListener("click",()=>{
-    let cartdata = JSON.parse(localStorage.getItem("cart")) 
+    
     if(cartdata==null){
       cartdata=[] 
     } 
