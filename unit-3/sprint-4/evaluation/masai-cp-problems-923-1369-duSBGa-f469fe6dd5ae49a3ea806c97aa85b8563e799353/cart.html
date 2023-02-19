@@ -6,7 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart Page</title>
     <style>
-      /* All Your css for Cart page goes here  */
+      /* All Your css for Cart page goes here  */ 
+      #cart-container{
+        display: grid; 
+        width: 90%; 
+        grid-template-columns:repeat(4,1fr); 
+        margin:auto;
+        gap: 20px; 
+      } 
+      img{
+        width: 100%;
+      } 
+      button{
+        background-color: red; 
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -22,5 +36,42 @@
       <!-- Here Append All the Cart Cards here-->
     </div>
   </body>
-  <script type="module"></script>
+  <script type="module">
+  let container = document.getElementById("cart-container") 
+  let cartdata=JSON.parse(localStorage.getItem("cart")) 
+  let total = document.getElementById("cart-total") 
+  if(cartdata==null){
+    cartdata=[] 
+    display(cartdata)
+  } 
+  function display(data){  
+      //console.log(data)
+      container.innerHTML=null; 
+      let count=0 
+      let del=0 
+    data.forEach(element => {
+      let div = document.createElement("div")
+    let card = document.createElement("div") 
+    let img=document.createElement("img") 
+     img.setAttribute("src",element.image) 
+    let title = document.createElement("h3") 
+     title.innerText=element.title 
+     let brand = document.createElement("p") 
+      brand.innerText=element.brand
+    let cat = document.createElement("p") 
+     cat.innerText=element.category 
+    let price = document.createElement("p") 
+     price.innerText=element.price 
+    
+     card.append(img,title,brand,cat,price,cart) 
+    count++
+    div.append(card)
+    container.append(div)
+    })
+
+    total.innerText=count
+  } 
+ 
+
+  </script>
 </html>
