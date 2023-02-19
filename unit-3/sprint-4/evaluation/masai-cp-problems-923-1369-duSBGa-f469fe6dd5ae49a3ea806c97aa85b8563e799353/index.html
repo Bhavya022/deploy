@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <style>
+      /* All CSS For Home Page Goes Here  */
+    </style>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Web E-Commerce</h1>
+      <a href="./index.html">Home</a>
+      <a href="./cart.html">Cart</a>
+    </div>
+    <h1 id="alert"></h1>
+    <main>
+      <div id="filter">
+        <div id="brand-filter">
+          <h2>Filter By Brands</h2>
+          <div>
+            <input type="checkbox" id="roadster" />
+            <p>Roadster</p>
+          </div>
+          <div>
+            <input type="checkbox" id="blackberrys" />
+            <p>Blackberrys</p>
+          </div>
+          <div>
+            <input type="checkbox" id="van-heusen" />
+            <p>Van Heusen</p>
+          </div>
+          <div>
+            <input type="checkbox" id="allen-solly" />
+            <p>Allen Solly</p>
+          </div>
+          <div>
+            <input type="checkbox" id="twills" />
+            <p>Twills</p>
+          </div>
+        </div>
+        <div id="category-filter">
+          <h2>Filter By Categories</h2>
+          <div>
+            <input type="checkbox" id="men" />
+            <p>Men</p>
+          </div>
+          <div>
+            <input type="checkbox" id="women" />
+            <p>Women</p>
+          </div>
+          <div>
+            <input type="checkbox" id="homedecor" />
+            <p>Homedecor</p>
+          </div>
+          <div>
+            <input type="checkbox" id="kids" />
+            <p>Kids</p>
+          </div>
+        </div>
+      </div>
+      <div id="product-container">
+        <div id="card">
+          <!-- Here Append All the Products  -->
+        </div>
+      </div>
+    </main>
+  </body>
+  <script type="module">
+    // All Your Script for Home Page Goes Here 
+    const url = 'https://dbioz2ek0e.execute-api.ap-south-1.amazonaws.com/mockapi/get-products' 
+    let container = document.getElementById("product-container");  
+    let alert = document.getElementById("alert") 
+    let filter = document.getElementById("filter")
+    let fetchdata=[]  
+    //fetch Part  
+  
+    fetch(url)
+      .then((res)=>{
+return res.json()  
+      }) 
+      .then((actualdata)=>{
+        fetchdata=actualdata.data 
+        console.log(actualdata.data) 
+        display(actualdata.data)
+    }) 
+    .catch((err)=>{
+      console.log(err)
+    })
+   
+    
+    function display(data){  
+      console.log(data)
+      container.innerHTML=null;
+    data.forEach(element => {
+    let card = document.createElement("div") 
+    let img=document.createElement("img") 
+     img.setAttribute("src",element.image) 
+    let title = document.createElement("h3") 
+     title.innerText=element.title 
+    let brand = document.createElement("p") 
+     brand.innerText=element.brand
+    let cat = document.createElement("p") 
+     cat.innerText=element.category 
+    let price = document.createElement("h4") 
+     price.innerText=element.price 
+    let cart = document.createElement("button")  
+    cart.innerText="Add To Cart"  
+    cart.addEventListener("click",()=>{
+    let cartdata = JSON.parse(localStorage.getItem("cart")) 
+    if(cartdata==null){
+      cartdata=[] 
+    } 
+    let ispresent = false 
+    for(let i=0;i<cartdata;i++){
+      if(cartdata[i].id===element.id){
+        ispresent=true 
+        break 
+      } 
+      if(ispresent==true){
+        alert.innerText="Product already in the cart" 
+      } 
+      else{
+        cartdata.push(element) 
+        localStorage.setItem("cart",JSON.stringify(cartdata)) 
+        alert.innerText="Product added to The cart"
+      }
+    }
+    })
+    card.append(img,title,brand,cat,price,cart) 
+    container.append(card)
+    });
+    }
+  </script>
+</html>
