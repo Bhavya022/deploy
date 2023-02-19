@@ -92,14 +92,14 @@
     let fetchdata=[]  
     //fetch Part  
   
-    fetch(url)
+   let data= fetch(url)
       .then((res)=>{
 return res.json()  
       }) 
-      .then((actualdata)=>{
-        fetchdata=actualdata.data 
-        console.log(actualdata.data) 
-        display(actualdata.data)
+      .then((data)=>{
+        fetchdata=data.data 
+        console.log(data.data) 
+        display(data.data)
     }) 
     .catch((err)=>{
       console.log(err)
@@ -107,9 +107,9 @@ return res.json()
    
     
     function display(data){  
-      console.log(data)
+      //console.log(data)
       container.innerHTML=null;
-    data.forEach((element) => {
+    data.map((element) => {
     let card = document.createElement("div") 
     let img=document.createElement("img") 
      img.setAttribute("src",element.image) 
