@@ -42,23 +42,30 @@ case 'cos':
   case 'tan':
     console.log(Math.tan(operator1)) 
     break 
-    case 'random':
+    case 'random': 
+    if(operator1){
       crypto.randomBytes(operator1, (err, buf) => {
         if (err) {
           // Prints error
-          console.log("Provide length for random number generation.");
-          return;
+          return "Provide length for random number generation."
+          
         }
         else{
           
         if(buf.length==0){
-          console.log("Provide length for random number generation."); 
-          return 
-        }
+        return   "Provide length for random number generation."
+          
+         }
         // Prints random bytes of generated data
         console.log(buf.toString('binary'));
         }
-      });
+      })
+      }
+      else{
+        console.log("Provide length for random number generation.")
+      }
+    
+      
       break
   default:
     console.log("Invalid operation");
