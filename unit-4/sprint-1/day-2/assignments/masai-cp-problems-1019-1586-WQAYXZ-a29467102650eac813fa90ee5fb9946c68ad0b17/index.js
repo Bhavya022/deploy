@@ -44,7 +44,7 @@ switch (operation) {
       }) 
       break  
       case 'list': 
-      fs.readdir(path, (err, files) => {
+      fs.readdir(path.dirname("./masai-cp-problems-1019-1586-WQAYXZ-a29467102650eac813fa90ee5fb9946c68ad0b17"), (err, files) => {
         files.forEach(file => {
           console.log(file);
         });
