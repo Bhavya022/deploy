@@ -86,7 +86,7 @@ const obj={
           
           res.write(`<li>${data[i].first_name}</li>`)
         } 
-        res.end()
+        res.end() //
       } 
       else if(req.url=="/address"){
         dns.lookup(URL,(err,Address,Family)=>{
