@@ -49,7 +49,7 @@ const name = mon[month]
         })
       }  
       else if(req.url=="/update"){
-        const obj={
+const obj={
           id:1,
          first_name:os.userInfo().username,
          last_name:os.userInfo().username,
@@ -61,7 +61,13 @@ const name = mon[month]
         data.push(obj)
        // console.log(data) 
         //data.push(obj) 
-        fs.writeFile("./data.json",JSON.stringify(data))
+        fs.appendFile("./data.json",JSON.stringify(data),(err)=>{
+          if(err){
+            res.end("Send the complete err as response")
+          } 
+          else{
+            res.end("The data has been updated, go and check the data file")
+          }
       } 
       if(req.url=="/users"){
         let data=JSON.parse(fs.readFileSync("./data.json","utf-8",(err,data)=>{
