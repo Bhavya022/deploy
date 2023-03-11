@@ -20,11 +20,7 @@ try {
 }
 
 // Write current database state to file
-function saveDatabase() {
-  fs.writeFile(DB_PATH, JSON.stringify(db), (err) => {
-    if (err) console.error(`Error saving database file: ${err}`);
-  });
-}
+
 
 // Get all todos
 app.get('/', (req, res) => {
@@ -39,7 +35,6 @@ app.post('/', (req, res) => {
     return;
   }
   db.todos.push({ id, task, status });
-  saveDatabase();
   res.json(db.todos);
 });
 
@@ -53,7 +48,6 @@ app.put('/:id', (req, res) => {
     return;
   }
   db.todos[todoIndex] = { ...db.todos[todoIndex], task, status };
-  saveDatabase();
   res.json(db.todos);
 });
 
@@ -66,7 +60,6 @@ app.delete('/:id', (req, res) => {
     return;
   }
   db.todos.splice(todoIndex, 1);
-  saveDatabase();
   res.json(db.todos);
 });
 
