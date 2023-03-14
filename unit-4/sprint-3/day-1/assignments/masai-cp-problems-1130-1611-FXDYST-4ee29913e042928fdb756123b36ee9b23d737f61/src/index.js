@@ -64,7 +64,7 @@ app.put("/user/:id",(req,res)=>{
   res.status(201).send({
     message: `user ${req.params.id} updated successfylly`
     })
-}) 
+})  //done
 app.delete("/user/:id",(req,res)=>{
   res.status(200).send({
     message: `user ${req.params.id} deleted successfylly`
