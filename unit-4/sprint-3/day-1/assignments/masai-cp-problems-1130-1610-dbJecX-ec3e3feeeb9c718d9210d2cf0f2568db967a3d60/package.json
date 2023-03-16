@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines":{
-    "npm":">=8.0.0 <9.0.0",
-    "node":"16.16.0"
+  "engines": {
+    "npm": ">=8.0.0 <9.0.0",
+    "node": "16.16.0"
   },
   "scripts": {
     "test": "jest app.test.js",
