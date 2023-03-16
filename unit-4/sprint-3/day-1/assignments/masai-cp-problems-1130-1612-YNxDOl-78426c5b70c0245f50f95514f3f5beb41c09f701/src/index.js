@@ -18,7 +18,7 @@ app.post("/upload",upload.single('avatar'),(req,res)=>{
     res.status(200).send({
         message: "file uploaded successfully"
      }) 
-    console.log(req.file) 
+    console.log(req.file)  //
 })  
 app.get("/",(req,res)=>{
     res.status(200).send({
