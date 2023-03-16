@@ -23,7 +23,7 @@ validator.use((req,res,next)=>{
         } 
         else{
             fs.appendFileSync("./res.txt","bad request.some data is incorrect.\n")
-            req.status(400).send("bad request.some data is incorrect.") 
+            res.status(400).send("bad request.some data is incorrect.") 
            
         } 
         next() 
