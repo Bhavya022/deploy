@@ -1,0 +1,18 @@
+GET 304 - 4.698 ms Thu, 09 Mar 2023 15:46:54 GMT 1.1 /get-users 
+
+GET 304 - 1.446 ms Thu, 09 Mar 2023 15:46:54 GMT 1.1 /get-users 
+
+GET 304 - 0.466 ms Thu, 09 Mar 2023 15:46:54 GMT 1.1 /get-users 
+
+GET 304 - 5.153 ms Thu, 09 Mar 2023 15:47:30 GMT 1.1 /get-users 
+
+GET 304 - 1.250 ms Thu, 09 Mar 2023 15:47:30 GMT 1.1 /get-users 
+
+GET 304 - 1.253 ms Thu, 09 Mar 2023 15:47:31 GMT 1.1 /get-users 
+
+GET 304 - 0.615 ms Thu, 09 Mar 2023 15:47:31 GMT 1.1 /get-users 
+
+GET 304 - 0.731 ms Thu, 09 Mar 2023 15:47:34 GMT 1.1 /get-users 
+
+GET 304 - 0.392 ms Thu, 09 Mar 2023 15:47:34 GMT 1.1 /get-users 
+
