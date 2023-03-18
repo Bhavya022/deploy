@@ -1,5 +1,5 @@
 
-
+const {MovieModel}=require("./movie.model")
 const express = require("express") 
 const movieRouter = express.Router()
 
@@ -7,12 +7,12 @@ const movieRouter = express.Router()
 movieRouter.get("/",async(req,res)=>{
 let {q,sort,page} = req.query 
 console.log(q) 
-let val=sort="asc"?1:-1 
+let val=sort=="asc"?1:-1 
 //pagination 
-let limit=5 
+let limit=3 
 let skip=(+page-1)*limit 
-
-let data = await MovieModel.find({name:{$regex:q,$options:i}}).sort({name:val}).skip(skip).limit(limit) 
+//const data = await MovieModel.find({name:{$regex:q,$options:"i"}})
+let data = await MovieModel.find().sort({[q]:val}).skip(skip).limit(limit) 
 res.send(data)
 })  
 //pagination 
@@ -26,4 +26,4 @@ movieRouter.post("/",async(req,res)=>{
     res.send("Movie added")
 }) 
 
-module.exports={movieRouter}
+module.exports={movieRouter} 
