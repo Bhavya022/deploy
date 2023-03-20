@@ -1,6 +1,6 @@
 const express=require("express") 
 //post,get,patch,del 
-const {moviemodel}=require("../models/movie.model")
+const moviemodel=require("../models/movie.model")
 const{movie_get,movie_post,movie_patch,movie_delete}=require("../controller/movie.controller") 
 
 const movieRoute = express.Router() 
@@ -10,12 +10,13 @@ movieRoute.get("/",async(req,res)=>{
     console.log(query) 
     let val=sort=="asc"?1:-1 
     let limit=2 
-    let skip=(+page-1)*await 
-    let data = await moviemodel.find().sort({[q]:val}).skip(skip).limit(limit) 
+    let skip=(+page-1)*limit 
+    
+     let data = await moviemodel.find().sort({[query]:val}).skip(skip).limit(limit)
     res.send(data)
 }) 
-movieRoute.patch("/update",movie_patch) 
-movieRoute.post("/post",async(req,res)=>{
+movieRoute.patch("/",movie_patch) 
+movieRoute.post("/",async(req,res)=>{
     console.log(req.body) 
     try{
         const new_movie=new moviemodel(req.body) 
@@ -28,6 +29,6 @@ movieRoute.post("/post",async(req,res)=>{
               res.send({err:err.message})
           }
 }) 
-movieRoute.delete("/delete",movie_delete)  
+movieRoute.delete("/",movie_delete)  
 
 module.exports={movieRoute}

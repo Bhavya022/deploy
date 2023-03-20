@@ -38,7 +38,7 @@ else{
 } 
 
 //delete 
-const movie_delete=async()=>{
+const movie_delete=async(req,res)=>{
     try{
        const deleted_movie= await moviemodel.findByIdAndDelete(req.params.deleteID) 
         console.log(deleted_movie)  

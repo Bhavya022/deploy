@@ -13,10 +13,10 @@ const movieSchema=new mongoose.Schema({
     genre:String,
     director:String,
     rating:Number,
-    release:Number
+    year_of_release:Number
 
 }
 ) 
 
 const moviemodel=mongoose.model("movie",movieSchema) 
-module.exports={moviemodel}
+module.exports=moviemodel
