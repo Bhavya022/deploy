@@ -2,7 +2,7 @@ const express=require("express")
 //post,get,patch,del 
 const moviemodel=require("../models/movie.model")
 const{movie_get,movie_post,movie_patch,movie_delete}=require("../controller/movie.controller") 
-
+const{fieldanalyzer,record}=require("../middlewares/validator")
 const movieRoute = express.Router() 
 //pagination limiting the data and display in terms of pages and send to res
 movieRoute.get("/",async(req,res)=>{
@@ -15,10 +15,10 @@ movieRoute.get("/",async(req,res)=>{
      let data = await moviemodel.find().sort({[query]:val}).skip(skip).limit(limit)
     res.send(data)
 }) 
-movieRoute.patch("/:updateID",async(req,res)=>{
+movieRoute.patch("/:_id",record,async(req,res)=>{
     try{ 
         console.log(req.body)
-const update_movie=await moviemodel.findByIdAndUpdate(req.params.updateID,req.body,{new:true});
+const update_movie=await moviemodel.findByIdAndUpdate(req.params._id,req.body,{new:true});
 console.log(update_movie) 
 if(!update_movie){
     res.status(400).send({msg:"movie not Found"})
@@ -31,7 +31,7 @@ else{
   res.status(500).send({err:err.message})
     }
     }) 
-movieRoute.post("/",async(req,res)=>{
+movieRoute.post("/",fieldanalyzer,async(req,res)=>{
     console.log(req.body) 
     try{
         const new_movie=new moviemodel(req.body) 
@@ -48,7 +48,7 @@ movieRoute.post("/",async(req,res)=>{
                 )
           }
 }) 
-movieRoute.delete("/:deleteID",async(req,res)=>{
+movieRoute.delete("/:deleteID",record,async(req,res)=>{
     try{
        const deleted_movie= await moviemodel.findByIdAndDelete(req.params.deleteID) 
         console.log(deleted_movie)  

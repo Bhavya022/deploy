@@ -39,4 +39,4 @@ const record = (req,res,next)=>{
         next() 
     }
 } 
-module.exports={fieldanalyzer,record}
+module.exports={fieldanalyzer,record} 

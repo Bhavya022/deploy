@@ -1,6 +1,7 @@
 const express = require("express") 
 const {connection}=require("./configs/db") 
-const {movieRoute}=require("./routes/movie.route") 
+const {movieRoute}=require("./routes/movie.route")  
+
 const mongoose = require("mongoose")
 const cors = require("cors")
 require("dotenv").config() 
