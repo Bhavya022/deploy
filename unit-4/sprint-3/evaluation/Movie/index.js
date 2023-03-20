@@ -1,8 +1,10 @@
 const express = require("express") 
 const {connection}=require("./configs/db") 
+const {movieRoute}=require("./routes/movie.route")
 require("dotenv").config() 
 const app=express() 
-
+app.use(express.json())  
+app.use("/movie",movieRoute)
 app.listen(process.env.port,()=>{ 
     connection()
     console.log("server start")

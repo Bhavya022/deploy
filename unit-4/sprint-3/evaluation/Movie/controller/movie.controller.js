@@ -21,7 +21,8 @@ const movie_post=async(req,res)=>{
 
 //patch 
 const movie_patch=async(req,res)=>{
-    try{
+    try{ 
+        console.log(req.body)
 const update_movie=await moviemodel.findByIdAndUpdate(req.params.updateID,req.body,{new:true});
 console.log(update_movie) 
 if(!update_movie){
@@ -37,3 +38,20 @@ else{
 } 
 
 //delete 
+const movie_delete=async()=>{
+    try{
+       const deleted_movie= await moviemodel.findByIdAndDelete(req.params.deleteID) 
+        console.log(deleted_movie)  
+        if(!deleted_movie){
+            res.status(404).send({msg:"movie not found"})
+        } 
+        else{
+            res.status(200).send({msg:"movie deleted successfully"})
+        }
+    } 
+    catch(err){
+     res.status(500).send({err:err.message})
+    }
+}
+
+module.exports={movie_get,movie_post,movie_patch,movie_delete}
