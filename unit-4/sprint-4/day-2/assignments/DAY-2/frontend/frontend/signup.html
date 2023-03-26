@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <form id="form">
+      Name: <input type="text" id="name" /> Email:<input
+        type="email"
+        id="email"
+      />
+      Password: <input type="password" id="pass" />
+
+      <button type="submit">register</button>
+    </form>
+  </body>
+</html>
+<script>
+  baseUrl = "https://relieved-ray-panama-hat.cyclic.app/user/register";
+  let form = document.getElementById("form");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let obj = {
+      name: form.name.value,
+      email: form.email.value,
+      pass: form.pass.value,
+    };
+
+    fetch(baseUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(obj),
+    })
+      .then((res) => res.json()) //{msg:"reget"}
+      .then((res) => {
+        if (res) {
+          form.reset();
+          alert(res.msg);
+          window.location.href = "/login.html";
+        }
+      })
+      .catch((err) => console.log(err));
+  });
+</script>
