@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>notes</title>
+  </head>
+  <body>
+    <span>Total Notes:</span>
+    <span id="totalNotes"></span>
+    <div><h2>Your Notes</h2></div>
+    <div id="notes"></div>
+    <div>
+      <button onclick="addNote()">Add Note</button>
+    </div>
+
+    <div></div>
+  </body>
+</html>
+<script>
+  const addNote = () => {
+    window.location.href = "/addNote.html";
+  };
+  baseUrl = "https://relieved-ray-panama-hat.cyclic.app/notes";
+  const totalNotes = document.getElementById("totalNotes");
+  const notes = document.getElementById("notes");
+  let token = localStorage.getItem("token");
+  window.addEventListener("load", () => {
+    fetch(baseUrl, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        totalNotes.innerText = res.data.length;
+        if (res.data.length === 0) {
+          notes.innerHTML = `You haven't created any note, ADD note`;
+        }
+      });
+  });
+</script>
