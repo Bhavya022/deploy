@@ -1,0 +1,54 @@
+Use the $lookup operator to perform a join on the first and second collections, so that the resulting documents contain both the personal information from the first collection
+ and the zip code information from the second collection.  
+
+ sol) db.user.aggregate([
+  {
+    $lookup:
+      {
+        from: "zipcode",
+        localField: "address",
+        foreignField: "address",
+        as: "zipcode_info"
+      }
+  }   
+]) 
+
+Chain another $lookup again and again, so that the resulting document contains the personal info from the first collection, 
+zip code info from the second collection, state from third collection and country from the fourth collection 
+
+sol) db.user.aggregate( [
+   {
+     $lookup:
+       {
+         from: "zips",
+         localField: "address",
+         foreignField: "address",
+         as: "zip_info"
+       }
+  },
+ {
+    $lookup:{
+       from:"city",
+       localField:"zip_info.zipcode",
+       foreignField:"zipcode",
+       as:"city_info"
+    }
+  },{
+    $lookup:{
+      from:"country",
+      localField:"city_info.state",
+      foreignField:"state",
+      as:"state_info"
+    }
+  },{
+    $project:{
+      _id:1,
+      name:1,
+      age:1,
+      address:1,
+      zipcode:{$arrayElemAt:["$zip_info.zipcode",0]},
+      state:{$arrayElemAt:["$city_info.state",0]},
+      country:{$arrayElemAt:["$state_info.country",0]}
+    }
+  }
+] )
