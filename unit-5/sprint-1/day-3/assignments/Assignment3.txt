@@ -1,0 +1,47 @@
+Filter out the cities with a population less than or equal to 5000. 
+sol)db.zips.aggregate([{$match:{pop:{$lte:5000}}},{$project:{_id:0,city:1}}]) 
+
+Group the remaining cities by state and calculate the total population for each state. 
+sol) db.zips.aggregate([{$match:{pop:{$lte:5000}}},{
+    $group: {
+      _id: "$state",
+      totalPopulation: { $sum: "$pop" }
+    }
+  }])  
+
+  Sort the resulting documents by the total population in descending order. 
+  db.zips.aggregate([{$match:{pop:{$lte:5000}}},{
+    $group: {
+      _id: "$state",
+      totalPopulation: { $sum: "$pop" }
+    }
+  },{$sort:{totalPopulation:-1}}])  
+
+  Skip the first 2 documents in the sorted list. 
+
+  db.zips.aggregate([{$match:{pop:{$lte:5000}}},{
+    $group: {
+      _id: "$state",
+      totalPopulation: { $sum: "$pop" }
+    }
+  },{$sort:{totalPopulation:-1}},{$skip:2}])  
+
+  Limit the output to 2 documents. 
+
+  db.zips.aggregate([{$match:{pop:{$lte:5000}}},{
+    $group: {
+      _id: "$state",
+      totalPopulation: { $sum: "$pop" }
+    }
+  },{$sort:{totalPopulation:-1}},{$skip:2},{$limit:2}])  
+
+  Project the output to include only the state and total population fields.  
+  db.zips.aggregate([{$match:{pop:{$lte:5000}}},{
+    $group: {
+      _id:{state:"$state"},
+      totalPopulation: { $sum: "$pop" }
+    }
+  },{$sort:{totalPopulation:-1}},{$skip:2},{$limit:2},{$project: {  
+      _id:0,state:"$_id.state",
+      totalPopulation: 1
+    }}])  

@@ -1,0 +1,32 @@
+db.sales.aggregate([
+  {
+    $match: {
+      date:
+                  {
+                     $dateAdd:
+                        {
+                           startDate: "$purchaseDate",
+                           unit: "day",
+                           amount: -1
+                        }
+                  }
+    }
+  },
+  {
+    $group: {
+      _id: "$item",
+      quantity_sold: { $sum: "$quantity" },
+      avg_price: { $avg: "$price" },
+      total_revenue: { $sum: "$total" }
+    }
+  },
+  {
+    $sort: {
+      quantity_sold: -1
+    }
+  },
+  {
+    $limit: 10
+  }
+]) 
+M
