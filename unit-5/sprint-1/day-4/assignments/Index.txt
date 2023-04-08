@@ -1,0 +1,17 @@
+- Create a new collection. 
+db.createCollection("people")
+
+- Insert at least 10 documents into the collection, with each document containing at least 3 fields (e.g. name, age, location). 
+- Create a compound index on the collection that includes at least 2 fields (e.g. age and location).
+db.people.createIndex({ age: 1, location: 1 }) 
+- Use the explain() function to analyze the performance of a query that uses the compound index. 
+db.people.find({ age: { $gte: 30 }, location: "San Francisco" }).explain()
+- Create a single field index on a field that is not included in the compound index. 
+db.people.createIndex({ name: 1 })
+- Use the explain() function to compare the performance of a query using the single field index to the performance of a query using the compound index.
+db.people.find({ name: "Alice" }).explain()
+db.people.find({ age: { $gte: 30 }, location: "San Francisco" }).explain()
+- Drop the single field index and create a multi-key index on an array field in one of the documents.
+db.people.dropIndex("name_1") 
+
+- Use the explain() function to analyze the performance of a query that uses the multi-key index.
